@@ -7,6 +7,9 @@
     "url": "http://github.com/htmllint/htmllint"
   },
   "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/gulp/bin/gulp.js test"
+  },
   "license": "ISC",
   "devDependencies": {
     "chai": "^1.9.1",
