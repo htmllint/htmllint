@@ -1,5 +1,1 @@
-function htmllint(html, opts) {
-    return [];
-}
-
-module.exports = htmllint;
+module.exports = require('./lib');
