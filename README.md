@@ -12,7 +12,7 @@ Getting Started
 
 To get started, pull in the dependencies:
 
-```
+```bash
 $ npm install
 # install gulp cli globally
 $ npm install -g gulp
