@@ -23,5 +23,4 @@ $ npm install -g gulp
 $ gulp lint
 # run tests
 $ gulp test
-$ npm test # this works too
 ```
