@@ -1,0 +1,5 @@
+# coverage
+lib-cov
+
+# node
+node_modules

@@ -1,0 +1,18 @@
+{
+  "name": "htmllint",
+  "version": "0.0.0",
+  "description": "Unofficial html5 linter and validator.",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/htmllint/htmllint"
+  },
+  "main": "index.js",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.0.0",
+    "jshint-stylish": "^0.4.0"
+  }
+}
