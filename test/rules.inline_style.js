@@ -1,7 +1,8 @@
 var expect = require('chai').expect;
 
 describe('rules.inline_style', function () {
-    var inlineStyle = require('../lib/rules/inline_style');
+    var inlineStyle = require('../lib/rules/inline_style'),
+        htmllint = require('../');
 
     it('should be an object', function () {
         expect(inlineStyle).to.be.an.instanceOf(Object);
@@ -13,6 +14,10 @@ describe('rules.inline_style', function () {
 
     it('should have a description', function () {
         expect(inlineStyle).to.have.property('description');
+    });
+
+    it('should be registered', function () {
+        expect(htmllint.defaultLinter.rules).to.have.property(inlineStyle.name);
     });
 
     describe('process', function () {
