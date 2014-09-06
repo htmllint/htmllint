@@ -8,6 +8,8 @@ htmllint
 [![dependencies](http://img.shields.io/david/htmllint/htmllint.svg?style=flat-square)](https://david-dm.org/htmllint/htmllint)
 [![devDependencies](http://img.shields.io/david/dev/htmllint/htmllint.svg?style=flat-square)](https://david-dm.org/htmllint/htmllint)
 
+[![Stories in Ready](https://badge.waffle.io/htmllint/htmllint.svg?label=ready&title=Ready)](http://waffle.io/htmllint/htmllint)
+
 [![npm](https://nodei.co/npm/htmllint.png?mini=true)](https://npmsjs.org/package/htmllint)
 
 Getting Started
