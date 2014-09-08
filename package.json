@@ -6,7 +6,7 @@
     "type": "git",
     "url": "http://github.com/htmllint/htmllint"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
