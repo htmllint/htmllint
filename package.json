@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "htmlparser2": "^3.7.3",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "require-all": "0.0.8"
   }
 }
