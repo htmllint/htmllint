@@ -20,5 +20,9 @@
     "istanbul": "^0.3.0",
     "jshint-stylish": "^0.4.0",
     "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "htmlparser2": "^3.7.3",
+    "lodash": "^2.4.1"
   }
 }

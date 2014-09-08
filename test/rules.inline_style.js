@@ -21,22 +21,29 @@ describe('rules.inline_style', function () {
     });
 
     describe('process', function () {
+        var Parser = require('../lib/parser'),
+            parser = null;
+
+        beforeEach(function () {
+            parser = new Parser();
+        });
+
         it('should return an array', function () {
             var output = inlineStyle.process('');
 
             expect(output).to.be.an.instanceOf(Array);
         });
 
-        it('should match style elements', function () {
-            var html = '<style></style>',
-                output = inlineStyle.process(html);
+        it('should not match style elements', function () {
+            var dom = parser.parse('<body style="hell></style>'),
+                output = inlineStyle.process(dom);
 
-            expect(output).to.have.length(1);
+            expect(output).to.have.length(0);
         });
 
         it('should match style attributes', function () {
-            var html = '<button style=""></button>',
-                output = inlineStyle.process(html);
+            var dom = parser.parse('<button style=""></button>'),
+                output = inlineStyle.process(dom);
 
             expect(output).to.have.length(1);
         });
