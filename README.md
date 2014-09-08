@@ -25,4 +25,9 @@ $ npm install -g gulp
 $ gulp lint
 # run tests
 $ gulp test
+
+# the following is an easy way to do adhoc testing:
+$ node # start node in the root dir of the repo
+> var htmllint = require('./');
+> htmllint('the html to lint');
 ```
