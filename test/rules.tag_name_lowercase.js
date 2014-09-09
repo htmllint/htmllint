@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 
-describe('rules.inline_style', function () {
-    var rule = require('../lib/rules/disable_inline_style'),
+describe('rules.tag_name_lowercase', function () {
+    var rule = require('../lib/rules/tag_name_lowercase'),
         htmllint = require('../');
 
     it('should be an object', function () {
@@ -34,15 +34,8 @@ describe('rules.inline_style', function () {
             expect(output).to.be.an.instanceOf(Array);
         });
 
-        it('should not match style elements', function () {
-            var dom = parser.parse('<body style="hell></style>'),
-                output = rule.process(dom);
-
-            expect(output).to.have.length(0);
-        });
-
-        it('should match style attributes', function () {
-            var dom = parser.parse('<button style=""></button>'),
+        it('should match attributes with mixed case', function () {
+            var dom = parser.parse('<boDY>'),
                 output = rule.process(dom);
 
             expect(output).to.have.length(1);
