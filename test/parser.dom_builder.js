@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 describe('parser.dom_builder', function () {
     var DomBuilder = require('../lib/parser/dom_builder'),
         DomHandler = require('htmlparser2').DomHandler;

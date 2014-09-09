@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 describe('rules.tag_name_lowercase', function () {
     var rule = require('../lib/rules/tag_name_lowercase'),
         htmllint = require('../');

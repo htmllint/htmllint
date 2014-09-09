@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 describe('rules.inline_style', function () {
     var rule = require('../lib/rules/disable_inline_style'),
         htmllint = require('../');

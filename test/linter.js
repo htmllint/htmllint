@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 describe('linter', function () {
     var Linter = require('../lib/linter');
 

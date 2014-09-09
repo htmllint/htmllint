@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 describe('htmllint', function () {
     var htmllint = require('../');
 

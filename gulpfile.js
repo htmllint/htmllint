@@ -38,7 +38,12 @@ gulp.task('istanbul', function (done) {
 
 // runs mocha tests
 gulp.task('test', ['istanbul'], function (done) {
-    gulp.src(paths.test)
+    // expose globals here for now
+    // move these into their own file if they grow
+    global.chai = require('chai');
+    global.expect = global.chai.expect;
+
+    gulp.src(paths.test, {read:false})
         .pipe(mocha({
             reporter: 'list'
         }))
