@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    coveralls = require('gulp-coveralls'),
     jshint = require('gulp-jshint'),
     istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha');
@@ -16,18 +17,27 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('jshint-stylish'));
 });
 
-// runs mocha tests
-gulp.task('test', function (done) {
+// instruments js source code for coverage reporting
+gulp.task('istanbul', function (done) {
     gulp.src(paths.src)
         .pipe(istanbul())
-        .on('finish', function () {
-            gulp.src(paths.test)
-                .pipe(mocha({
-                    reporter: 'nyan'
-                }))
-                .pipe(istanbul.writeReports())
-                .on('end', done);
-        });
+        .on('finish', done);
+});
+
+// runs mocha tests
+gulp.task('test', ['istanbul'], function (done) {
+    gulp.src(paths.test)
+        .pipe(mocha({
+            reporter: 'list'
+        }))
+        .pipe(istanbul.writeReports())
+        .on('end', done);
+});
+
+// runs on travis ci (lints, tests, and uploads to coveralls)
+gulp.task('travis', ['lint', 'test'], function () {
+    gulp.src('coverage/**/lcov.info')
+        .pipe(coveralls());
 });
 
 gulp.task('default', [
