@@ -1,12 +1,10 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
+    istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha');
 
 var paths = {
-    src: [
-        './index.js',
-        './lib/**/*.js'
-    ],
+    src: ['./lib/**/*.js'],
     test: './test/*.js'
 };
 
@@ -19,11 +17,17 @@ gulp.task('lint', function () {
 });
 
 // runs mocha tests
-gulp.task('test', function () {
-    return gulp.src(paths.test)
-        .pipe(mocha({
-            reporter: 'nyan'
-        }));
+gulp.task('test', function (done) {
+    gulp.src(paths.src)
+        .pipe(istanbul())
+        .on('finish', function () {
+            gulp.src(paths.test)
+                .pipe(mocha({
+                    reporter: 'nyan'
+                }))
+                .pipe(istanbul.writeReports())
+                .on('end', done);
+        });
 });
 
 gulp.task('default', [

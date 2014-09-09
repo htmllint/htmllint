@@ -15,6 +15,7 @@
     "chai": "^1.9.1",
     "coveralls": "^2.11.1",
     "gulp": "^3.8.7",
+    "gulp-istanbul": "^0.2.2",
     "gulp-jshint": "^1.8.4",
     "gulp-mocha": "^1.0.0",
     "istanbul": "^0.3.0",
