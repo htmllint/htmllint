@@ -15,6 +15,8 @@ describe('parser.dom_builder', function () {
     it('should throw on addDomElement if not initialized with a parser', function () {
         var builder = new DomBuilder();
 
+        // jscs:disable disallowDanglingUnderscores
         expect(builder._addDomElement.bind(builder)).to.throw(Error);
+        // jscs:enable disallowDanglingUnderscores
     });
 });
