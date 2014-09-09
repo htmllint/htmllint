@@ -12,7 +12,9 @@ var paths = {
 // lints javascript files with jshint
 // edit .jshintrc for configuration
 gulp.task('lint', function () {
-    return gulp.src(paths.src)
+    return gulp.src(paths.src
+                    .concat(paths.test)
+                    .concat('./gulpfile.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
