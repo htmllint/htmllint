@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     coveralls = require('gulp-coveralls'),
+    jscs = require('gulp-jscs'),
     jshint = require('gulp-jshint'),
     istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha');
@@ -9,14 +10,23 @@ var paths = {
     test: './test/*.js'
 };
 
+gulp.task('jscs', function () {
+    gulp.src(paths.src
+             .concat(paths.test))
+        .pipe(jscs());
+});
+
 // lints javascript files with jshint
 // edit .jshintrc for configuration
-gulp.task('lint', function () {
+gulp.task('lint', ['jscs'], function () {
     return gulp.src(paths.src
-                    .concat(paths.test)
-                    .concat('./gulpfile.js'))
+             .concat(paths.test)
+             .concat('./gulpfile.js'))
         .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
+        .pipe(jshint.reporter('jshint-stylish', {
+            verbose: true
+        }))
+        .pipe(jshint.reporter('fail'));
 });
 
 // instruments js source code for coverage reporting
