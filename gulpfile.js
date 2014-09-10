@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     jscs = require('gulp-jscs'),
     jshint = require('gulp-jshint'),
     istanbul = require('gulp-istanbul'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    plato = require('gulp-plato');
 
 var paths = {
     src: ['./lib/**/*.js'],
@@ -49,6 +50,13 @@ gulp.task('test', ['istanbul'], function (done) {
         }))
         .pipe(istanbul.writeReports())
         .on('end', done);
+});
+
+// plato report
+// TODO: think bout this a bit more
+gulp.task('plato', function () {
+    gulp.src(paths.src)
+        .pipe(plato('report', {}));
 });
 
 // runs on travis ci (lints, tests, and uploads to coveralls)

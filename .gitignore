@@ -2,6 +2,9 @@
 lib-cov
 coverage
 
+# plato
+report
+
 # node
 node_modules
 npm-debug.log
