@@ -3,8 +3,7 @@ var gulp = require('gulp'),
     jscs = require('gulp-jscs'),
     jshint = require('gulp-jshint'),
     istanbul = require('gulp-istanbul'),
-    mocha = require('gulp-mocha'),
-    plato = require('gulp-plato');
+    mocha = require('gulp-mocha');
 
 var paths = {
     src: ['./lib/**/*.js'],
@@ -55,6 +54,7 @@ gulp.task('test', ['istanbul'], function (done) {
 // plato report
 // TODO: think bout this a bit more
 gulp.task('plato', function () {
+    plato = require('gulp-plato');
     gulp.src(paths.src)
         .pipe(plato('report', {}));
 });
