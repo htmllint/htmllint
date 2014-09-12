@@ -47,5 +47,13 @@ describe('rules.href_type', function () {
 
             expect(output).to.have.length(1);
         });
+
+        it('should not match any links given false option', function () {
+            var parser = new Parser(),
+                dom = parser.parse('<a href="/dog/cat"></a><a href="http://www.google.com"></a>'),
+                output = rule.process(dom, {'href-type':false});
+
+            expect(output).to.have.length(0);
+        });
     });
 });
