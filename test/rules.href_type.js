@@ -14,7 +14,7 @@ describe('rules.href_type', function () {
             expect(output).to.be.an.instanceOf(Array);
         });
         //this code is for if the flag is set to absolute
-        it('should not match absolute links', function () {
+        it('should not match absolute links given absolute option', function () {
 
             var parser = new Parser(),
                 dom = parser.parse('<a href="http://www.google.com"></a>'),
@@ -23,10 +23,27 @@ describe('rules.href_type', function () {
             expect(output).to.have.length(0);
         });
 
-        it('should match relative links', function () {
+        it('should match relative links given absolute option', function () {
             var parser = new Parser(),
                 dom = parser.parse('<a href="/dog/cat"></a>'),
                 output = rule.process(dom, {'href-type':'absolute'});
+
+            expect(output).to.have.length(1);
+        });
+
+        it('should not match relative links given relative option', function () {
+
+            var parser = new Parser(),
+                dom = parser.parse('<a href="/dog/cat"></a>'),
+                output = rule.process(dom, {'href-type':'relative'});
+
+            expect(output).to.have.length(0);
+        });
+
+        it('should match absolute links given relative option', function () {
+            var parser = new Parser(),
+                dom = parser.parse('<a href="http://www.google.com"></a>'),
+                output = rule.process(dom, {'href-type':'relative'});
 
             expect(output).to.have.length(1);
         });
