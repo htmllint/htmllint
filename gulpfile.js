@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     coveralls = require('gulp-coveralls'),
+    eslint = require('gulp-eslint'),
     jscs = require('gulp-jscs'),
-    jshint = require('gulp-jshint'),
     istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha');
 
@@ -16,17 +16,14 @@ gulp.task('jscs', function () {
         .pipe(jscs());
 });
 
-// lints javascript files with jshint
-// edit .jshintrc for configuration
+// lints javascript files with eslint
+// edit .eslintrc for configuration
 gulp.task('lint', ['jscs'], function () {
     return gulp.src(paths.src
              .concat(paths.test)
              .concat('./gulpfile.js'))
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish', {
-            verbose: true
-        }))
-        .pipe(jshint.reporter('fail'));
+        .pipe(eslint())
+        .pipe(eslint.format());
 });
 
 // instruments js source code for coverage reporting
@@ -54,7 +51,7 @@ gulp.task('test', ['istanbul'], function (done) {
 // plato report
 // TODO: think bout this a bit more
 gulp.task('plato', function () {
-    plato = require('gulp-plato');
+    var plato = require('gulp-plato');
     gulp.src(paths.src)
         .pipe(plato('report', {}));
 });
