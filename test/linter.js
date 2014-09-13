@@ -24,8 +24,8 @@ describe('linter', function () {
     });
 
     describe('lint', function () {
-        var linter = null,
-            ConstRule = require('./fixtures/const_rule');
+        var ConstRule = require('./fixtures/const_rule');
+        var linter = null;
 
         beforeEach(function () {
             linter = new Linter();
