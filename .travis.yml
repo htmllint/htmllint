@@ -3,9 +3,12 @@ node_js:
 - '0.10'
 notifications:
   email: false
+branches:
+  only:
+    - master
 env:
   global:
-    secure: Vq0wSjOCrsf9hY62dje3D76RRpkel/dp1/Mi+RDJRof4Y6LZGgP6KUyxa67tGLEYRNtknBjhLphSoXWEA6G4o6aUR+duHbOyOkqDss0Lms5MmP42HxJ3llYA+g9D5Um6uIo3Ax2ppj6B5dSS7O3f2Sxcmr6oCw+1S2Y+XxDS2wo=
+  - secure: SfSHCMmLFvFf2ImHNqNt2xv7rgPD9MXYR2sy+uPOrzq1z4zceK5BRf7SaoZR+vmj7plaKdTnVfkdCw0UhAOdVEnfTZENfBaXsVHwdE0HiWVvTt6avQ+EMia0U+HLd5FpgoejMI9/eq5IkWav6/Q4wK1K77F1nCl3TfjZYB36pf0=
 after_script:
   - git config credential.helper "store --file=.git/credentials"
   - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
