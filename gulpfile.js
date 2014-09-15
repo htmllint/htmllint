@@ -4,11 +4,13 @@ var gulp = require('gulp'),
     jscs = require('gulp-jscs'),
     jsdoc = require('gulp-jsdoc'),
     istanbul = require('gulp-istanbul'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    publish = require('gulp-gh-pages');
 
 var paths = {
     src: ['./lib/**/*.js'],
-    test: './test/*.js'
+    test: './test/*.js',
+    site: ['./site/**/*']
 };
 
 gulp.task('jscs', function () {
@@ -75,6 +77,11 @@ gulp.task('jsdoc', function () {
 });
 
 gulp.task('doc:gen', ['jsdoc']);
+
+gulp.task('doc:pub', ['doc:gen'], function () {
+    gulp.src(paths.site)
+        .pipe(publish());
+});
 
 // runs on travis ci (lints, tests, and uploads to coveralls)
 gulp.task('travis', ['lint', 'test'], function () {
