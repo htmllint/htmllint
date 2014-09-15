@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     coveralls = require('gulp-coveralls'),
     eslint = require('gulp-eslint'),
     jscs = require('gulp-jscs'),
+    jsdoc = require('gulp-jsdoc'),
     istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha');
 
@@ -55,6 +56,25 @@ gulp.task('plato', function () {
     gulp.src(paths.src)
         .pipe(plato('report', {}));
 });
+
+// jsdoc generation
+gulp.task('jsdoc', function () {
+    gulp.src(paths.src)
+        .pipe(jsdoc.parser({
+            plugins: [
+                'plugins/escapeHtml',
+                'plugins/markdown'
+            ],
+            markdown: {
+                parser: 'gfm',
+                githubRepoOwner: 'htmllint',
+                githubRepoName: 'htmllint'
+            }
+        }))
+        .pipe(jsdoc.generator('./site/api'));
+});
+
+gulp.task('doc:gen', ['jsdoc']);
 
 // runs on travis ci (lints, tests, and uploads to coveralls)
 gulp.task('travis', ['lint', 'test'], function () {

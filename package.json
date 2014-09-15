@@ -18,6 +18,7 @@
     "gulp-eslint": "^0.1.8",
     "gulp-istanbul": "^0.2.2",
     "gulp-jscs": "^1.1.2",
+    "gulp-jsdoc": "^0.1.4",
     "gulp-jshint": "^1.8.4",
     "gulp-mocha": "^1.0.0",
     "gulp-plato": "^1.0.1",

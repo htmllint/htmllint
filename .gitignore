@@ -5,6 +5,9 @@ coverage
 # plato
 report
 
+# docs
+site
+
 # node
 node_modules
 npm-debug.log
