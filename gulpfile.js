@@ -2,7 +2,6 @@ var gulp = require('gulp'),
     coveralls = require('gulp-coveralls'),
     eslint = require('gulp-eslint'),
     jscs = require('gulp-jscs'),
-    jsdoc = require('gulp-jsdoc'),
     istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha'),
     publish = require('gulp-gh-pages');
@@ -72,6 +71,7 @@ gulp.task('plato', function () {
 
 // jsdoc generation
 gulp.task('jsdoc', function () {
+    var jsdoc = require('gulp-jsdoc');
     gulp.src(paths.src)
         .pipe(jsdoc.parser({
             plugins: [
