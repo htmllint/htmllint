@@ -1,5 +1,5 @@
 describe('linter', function () {
-    var Linter = require('../lib/linter');
+    var Linter = require('../../lib/linter');
 
     it('should be a function', function () {
         expect(Linter).to.be.an.instanceOf(Function);
@@ -24,7 +24,7 @@ describe('linter', function () {
     });
 
     describe('lint', function () {
-        var ConstRule = require('./fixtures/const_rule');
+        var ConstRule = require('../fixtures/const_rule');
         var linter = null;
 
         beforeEach(function () {

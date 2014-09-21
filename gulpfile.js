@@ -8,10 +8,11 @@ var gulp = require('gulp'),
 
 var paths = {
     src: ['./lib/**/*.js'],
-    test: './test/*.js',
+    test_unit: './test/unit/*.js',
     test_func: './test/functional/*.js',
     site: ['./site/**/*']
 };
+paths.test = [].concat(paths.test_unit, paths.test_func);
 
 gulp.task('jscs', function () {
     gulp.src(paths.src
@@ -49,16 +50,6 @@ gulp.task('test', ['istanbul'], function (done) {
         }))
         .pipe(istanbul.writeReports())
         .on('end', done);
-});
-
-gulp.task('test:func', function () {
-    global.chai = require('chai');
-    global.expect = global.chai.expect;
-
-    gulp.src(paths.test_func, {read:false})
-        .pipe(mocha({
-            reporter: 'list'
-        }));
 });
 
 // plato report
