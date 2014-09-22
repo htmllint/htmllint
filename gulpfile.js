@@ -63,7 +63,7 @@ gulp.task('plato', function () {
 // jsdoc generation
 gulp.task('jsdoc', function () {
     var jsdoc = require('gulp-jsdoc');
-    gulp.src(paths.src)
+    gulp.src(paths.src.concat('README.md'))
         .pipe(jsdoc.parser({
             plugins: [
                 'plugins/escapeHtml',
@@ -75,7 +75,16 @@ gulp.task('jsdoc', function () {
                 githubRepoName: 'htmllint'
             }
         }))
-        .pipe(jsdoc.generator('./site/api'));
+        .pipe(jsdoc.generator('./site/api', {
+            // template
+            path: 'ink-docstrap',
+            theme: 'cerulean',
+            systemName: 'htmllint',
+            navType: 'vertical',
+            linenums: true,
+            inverseNav: true,
+            outputSourceFiles: true
+        }));
 });
 
 gulp.task('doc:gen', ['jsdoc']);
