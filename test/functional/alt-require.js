@@ -7,5 +7,9 @@ module.exports = [
         desc: 'should match images without fallbacks',
         input: '<img src="nyannynyan.svg">',
         output: 1
+    }, {
+        desc: 'should not match non image elements without fallbacks',
+        input: '<div>this should return 0</div>',
+        output: 0
     }
 ];
