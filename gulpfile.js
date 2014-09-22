@@ -91,7 +91,9 @@ gulp.task('doc:gen', ['jsdoc']);
 
 gulp.task('doc:pub', ['doc:gen'], function () {
     gulp.src(paths.site)
-        .pipe(publish());
+        .pipe(publish({
+            cacheDir: '.tmp'
+        }));
 });
 
 // runs on travis ci (lints, tests, and uploads to coveralls)

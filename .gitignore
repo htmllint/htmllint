@@ -7,6 +7,7 @@ report
 
 # docs
 site
+.tmp
 
 # node
 node_modules
