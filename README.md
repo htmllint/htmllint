@@ -32,3 +32,21 @@ $ node # start node in the root dir of the repo
 > var htmllint = require('./');
 > htmllint('the html to lint');
 ```
+
+Release History
+---------------
+
+### v0.0.3
+
+* added jsdoc
+* added more rules
+* added functional test suite
+
+### v0.0.2
+
+* added more rules
+* added htmlparser2, rules run on an AST now
+
+### v0.0.1
+
+* added basic scraper for inline styles using regex
