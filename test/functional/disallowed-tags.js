@@ -5,12 +5,8 @@ module.exports = [
         output: 0
     }, {
         desc: 'should match style by default',
-        input: '<body><div><style>p {color: red;}</style</div</body>',
+        input: '<body><div><style>p {color: red;}</style></div></body>',
         output: 1
-    }, {
-        desc: 'should match multiple unwanted default-specified elements',
-        input: '<body><div><style>p {color: red;}</style><i>italics</i><b></b></div></body>',
-        output: 3
     }, {
         desc: 'should match options if user sets them',
         input: '<body><button style=""></button><main></main></body>',
