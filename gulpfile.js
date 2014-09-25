@@ -2,17 +2,17 @@ var gulp = require('gulp'),
     coveralls = require('gulp-coveralls'),
     eslint = require('gulp-eslint'),
     jscs = require('gulp-jscs'),
-    jsdoc = require('gulp-jsdoc'),
     istanbul = require('gulp-istanbul'),
     mocha = require('gulp-mocha'),
     publish = require('gulp-gh-pages');
 
 var paths = {
     src: ['./lib/**/*.js'],
-    test: './test/*.js',
+    test_unit: './test/unit/*.js',
     test_func: './test/functional/*.js',
     site: ['./site/**/*']
 };
+paths.test = [].concat(paths.test_unit, paths.test_func);
 
 gulp.task('jscs', function () {
     gulp.src(paths.src
@@ -52,16 +52,6 @@ gulp.task('test', ['istanbul'], function (done) {
         .on('end', done);
 });
 
-gulp.task('test:func', function () {
-    global.chai = require('chai');
-    global.expect = global.chai.expect;
-
-    gulp.src(paths.test_func, {read:false})
-        .pipe(mocha({
-            reporter: 'list'
-        }));
-});
-
 // plato report
 // TODO: think bout this a bit more
 gulp.task('plato', function () {
@@ -72,7 +62,8 @@ gulp.task('plato', function () {
 
 // jsdoc generation
 gulp.task('jsdoc', function () {
-    gulp.src(paths.src)
+    var jsdoc = require('gulp-jsdoc');
+    gulp.src(paths.src.concat('README.md'))
         .pipe(jsdoc.parser({
             plugins: [
                 'plugins/escapeHtml',
@@ -84,14 +75,25 @@ gulp.task('jsdoc', function () {
                 githubRepoName: 'htmllint'
             }
         }))
-        .pipe(jsdoc.generator('./site/api'));
+        .pipe(jsdoc.generator('./site/api', {
+            // template
+            path: 'ink-docstrap',
+            theme: 'cerulean',
+            systemName: 'htmllint',
+            navType: 'vertical',
+            linenums: true,
+            inverseNav: true,
+            outputSourceFiles: true
+        }));
 });
 
 gulp.task('doc:gen', ['jsdoc']);
 
 gulp.task('doc:pub', ['doc:gen'], function () {
     gulp.src(paths.site)
-        .pipe(publish());
+        .pipe(publish({
+            cacheDir: '.tmp'
+        }));
 });
 
 // runs on travis ci (lints, tests, and uploads to coveralls)

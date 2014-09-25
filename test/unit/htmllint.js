@@ -1,5 +1,5 @@
 describe('htmllint', function () {
-    var htmllint = require('../');
+    var htmllint = require('../../');
 
     it('should be a function', function () {
         expect(htmllint).to.be.an.instanceOf(Function);
