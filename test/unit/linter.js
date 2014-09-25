@@ -34,7 +34,9 @@ describe('linter', function () {
         it('should return correct line and column numbers', function () {
             var rule = new ConstRule([{
                 msg: 'this is a test',
-                index: 4
+                index: 4,
+                line: 2,
+                column: 3
             }]), output;
 
             linter.addRule(rule);
@@ -88,8 +90,8 @@ describe('linter', function () {
             var concatted = lines.join('\n').concat('\n');
             var output = linter.shred(concatted)
 
-            expect(output[lines.length].line).to.be.eql(lines[lines.length - 1]);
-            expect(output[lines.length].index).to.be.eql(concatted.indexOf(lines[lines.length - 1]));
+            expect(output[lines.length].line).to.be.eql(lines[lines.length - 1].concat('\n'));
+            expect(output[lines.length].index).to.be.eql(concatted.indexOf(lines[lines.length - 1].concat('\n')));
         })
     })
 
