@@ -27,8 +27,8 @@
     "mocha": "^1.21.4"
   },
   "dependencies": {
+    "bulk-require": "^0.2.1",
     "htmlparser2": "^3.7.3",
-    "lodash": "^2.4.1",
-    "require-all": "0.0.8"
+    "lodash": "^2.4.1"
   }
 }
