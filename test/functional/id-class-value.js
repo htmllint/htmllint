@@ -2,7 +2,7 @@ module.exports = [
     {
         desc: 'should pass when set to false',
         input: '<div id="2fOwj_0o-3" class="0r9jfFJ2"></div>',
-        opts: { 'attr-name-style': false },
+        opts: { 'id-class-value': false },
         output: 0
     }, {
         desc: 'should pass correctly styled id and class',
