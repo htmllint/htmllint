@@ -1,5 +1,6 @@
 ---
   rules:
     quotes: [2, 'single', 'avoid-escape']
+    strict: false
   env:
     node: true
