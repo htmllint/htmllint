@@ -11,7 +11,7 @@ htmllint
 [![stories in ready](https://badge.waffle.io/htmllint/htmllint.svg?label=ready&title=Ready)](http://waffle.io/htmllint/htmllint)
 [![code climate](http://img.shields.io/codeclimate/github/htmllint/htmllint.svg?style=flat-square)](https://codeclimate.com/github/htmllint/htmllint)
 
-[![npm](https://nodei.co/npm/htmllint.png?mini=true)](https://npmsjs.org/package/htmllint)
+[![npm](https://nodei.co/npm/htmllint.png?downloads=true&downloadRank=true&stars=true)](https://npmsjs.org/package/htmllint)
 
 Getting Started
 ---------------
