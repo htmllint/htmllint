@@ -18,20 +18,6 @@ var testFiles = fs.readdirSync(__dirname)
         };
     });
 
-// for each test file, create a test suite
-testFiles.forEach(function (testFile) {
-    describe(testFile.name, function () {
-        testFile.mod.forEach(function (test) {
-            if (!test.hasOwnProperty('rules')) {
-                // if no rules are specified, use the filename
-                test.rules = [testFile.name];
-            }
-
-            doTest(test);
-        });
-    });
-});
-
 function doTest(funcTest) {
     it(funcTest.desc, function () {
         // configure a new linter
@@ -64,3 +50,17 @@ function doTest(funcTest) {
         }
     });
 }
+
+// for each test file, create a test suite
+testFiles.forEach(function (testFile) {
+    describe(testFile.name, function () {
+        testFile.mod.forEach(function (test) {
+            if (!test.hasOwnProperty('rules')) {
+                // if no rules are specified, use the filename
+                test.rules = [testFile.name];
+            }
+
+            doTest(test);
+        });
+    });
+});

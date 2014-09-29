@@ -8,11 +8,11 @@ var gulp = require('gulp'),
 
 var paths = {
     src: ['./lib/**/*.js'],
-    test_unit: './test/unit/*.js',
-    test_func: './test/functional/*.js',
+    testUnit: './test/unit/*.js',
+    testFunc: './test/functional/*.js',
     site: ['./site/**/*']
 };
-paths.test = [].concat(paths.test_unit, paths.test_func);
+paths.test = [].concat(paths.testUnit, paths.testFunc);
 
 gulp.task('jscs', function () {
     gulp.src(paths.src

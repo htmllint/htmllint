@@ -13,8 +13,8 @@ describe('parser.dom_builder', function () {
     it('should throw on addDomElement if not initialized with a parser', function () {
         var builder = new DomBuilder();
 
-        // jscs:disable disallowDanglingUnderscores
+        /*eslint-disable no-underscore-dangle*/
         expect(builder._addDomElement.bind(builder)).to.throw(Error);
-        // jscs:enable disallowDanglingUnderscores
+        /*eslint-enable no-underscore-dangle*/
     });
 });
