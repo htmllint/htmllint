@@ -66,33 +66,33 @@ describe('linter', function () {
         var linter = new Linter();
 
         it('should return an array', function () {
-            var output = linter.shred('')
+            var output = linter.shred('');
             expect(output).to.be.an.instanceOf(Array);
-        })
+        });
 
         it('should return the proper number of lines', function () {
             var lines = [
-                "Line1Line1Line1Line1",
-                "Line2Line2Line2Line2",
-                "Line3Line3Line3Line3"
-            ]
-            var output = linter.shred(lines.join('\n').concat('\n'))
+                'Line1Line1Line1Line1',
+                'Line2Line2Line2Line2',
+                'Line3Line3Line3Line3'
+            ];
+            var output = linter.shred(lines.join('\n').concat('\n'));
 
             expect(output.length - 1).to.be.eql(lines.length);
-        })
+        });
 
         it('should return the full line at the right index', function () {
             var lines = [
-                "Line1Line1Line1Line1",
-                "Line2Line2Line2Line2",
-                "Line3Line3Line3Line3"
+                'Line1Line1Line1Line1',
+                'Line2Line2Line2Line2',
+                'Line3Line3Line3Line3'
             ];
             var concatted = lines.join('\n').concat('\n');
-            var output = linter.shred(concatted)
+            var output = linter.shred(concatted);
 
             expect(output[lines.length].line).to.be.eql(lines[lines.length - 1].concat('\n'));
             expect(output[lines.length].index).to.be.eql(concatted.indexOf(lines[lines.length - 1].concat('\n')));
-        })
-    })
+        });
+    });
 
 });
