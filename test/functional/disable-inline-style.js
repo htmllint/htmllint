@@ -9,5 +9,10 @@ module.exports = [
         input: '<button style="color: red;"></button>',
         opts: { 'disable-inline-style': true },
         output: 1
+    }, {
+        desc: 'should not match when disabled',
+        input: '<button style="color: red;"></button>',
+        opts: { 'disable-inline-style': false },
+        output: 0
     }
 ];

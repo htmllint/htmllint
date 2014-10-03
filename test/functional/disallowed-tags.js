@@ -13,5 +13,10 @@ module.exports = [
         input: '<body><style></style><i></i></body>',
         opts: { 'disallowed-tags': ['button', 'main'] },
         output: 0
+    }, {
+        desc: 'should not match when disabled',
+        input: '<body><button style=""></button><main></main></body>',
+        opts: { 'disallowed-tags': false },
+        output: 0
     }
 ];
