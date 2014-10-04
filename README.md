@@ -36,6 +36,12 @@ $ node # start node in the root dir of the repo
 Release History
 ---------------
 
+### v0.0.6
+
+* fixed some runtime errors in a few rules
+* fixed index errors that would occur on multiple runs
+of the parser
+
 ### v0.0.5
 
 * fixed line,col output bug
