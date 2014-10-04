@@ -10,4 +10,14 @@ describe('htmllint', function () {
 
         expect(result).to.be.an.instanceOf(Array);
     });
+
+    it('should not throw on sanity.html', function () {
+        var fs = require('fs'),
+            filePath = './test/fixtures/sanity.html';
+        var sanityHtml = fs.readFileSync(filePath, {encoding: 'utf8'});
+
+        expect(function () {
+            htmllint(sanityHtml);
+        }).to.not.throw(Error);
+    });
 });
