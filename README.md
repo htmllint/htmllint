@@ -36,6 +36,11 @@ $ node # start node in the root dir of the repo
 Release History
 ---------------
 
+### v0.0.5
+
+* fixed line,col output bug
+* added label-for rule
+
 ### v0.0.4
 
 * added id-unique rule
