@@ -1,6 +1,7 @@
 ---
   rules:
     quotes: [2, 'single', 'avoid-escape']
-    strict: false
+    strict: 0
+    no-console: 1
   env:
     node: true
