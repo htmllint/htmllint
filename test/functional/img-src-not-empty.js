@@ -14,5 +14,10 @@ module.exports = [
         input: '<img id="notasource">',
         opts: { 'img-src-not-empty': true },
         output: 1
+    }, {
+        desc: 'should fail when the img src is empty',
+        input: '<img src>',
+        opts: { 'img-src-not-empty': true },
+        output: 1
     }
 ];
