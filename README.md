@@ -36,6 +36,15 @@ $ node # start node in the root dir of the repo
 Release History
 ---------------
 
+### v0.0.7
+
+* added rules:
+  * attr-value-quotes
+  * img-src-not-empty
+  * label-for
+  * tag-self-close
+* fixed tag-name-lowercase bug
+
 ### v0.0.6
 
 * fixed some runtime errors in a few rules
