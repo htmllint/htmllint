@@ -19,5 +19,10 @@ module.exports = [
         input: '<HTML><seCtion></section></HTML>',
         opts: { 'tag-name-lowercase': false },
         output: 0
+    }, {
+        desc: 'should not match directives',
+        input: '<!DOCTYPE html>',
+        opts: { 'tag-name-lowercase': true },
+        output: 0
     }
 ];
