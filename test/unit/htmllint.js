@@ -12,9 +12,9 @@ describe('htmllint', function () {
     });
 
     it('should not throw on sanity.html', function () {
-        var fs = require('fs'),
-            filePath = './test/fixtures/sanity.html';
-        var sanityHtml = fs.readFileSync(filePath, {encoding: 'utf8'});
+        var fs = require('fs');
+        var filePath = './test/fixtures/sanity.html',
+            sanityHtml = fs.readFileSync(filePath, {encoding: 'utf8'});
 
         expect(function () {
             htmllint(sanityHtml);
