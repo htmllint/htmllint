@@ -27,4 +27,23 @@ describe('linter', function () {
             expect(output[0].children[1].closeLineCol).to.be.eql([4,3]);
         });
     });
+    
+    describe('onattribute', function () {
+        var parser = null;
+
+        beforeEach(function () {
+            parser = new Parser();
+        });
+
+        it('should correctly return an array of duplicates', function () {
+            var output = parser.parse([
+               '<body>\n'
+              ,'  <div class="hello" id="identityDiv" class="goodbye">\n'
+              ,'  </div>\n'
+              ,'</body>\n'
+            ].join(''));
+
+            expect(output[0].children[1].dupes).to.be.eql(['class']);
+        });
+    });
 });
