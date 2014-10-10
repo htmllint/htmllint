@@ -5,7 +5,7 @@ module.exports = [
             '<label for="thing">The Thing</label>',
             '<input type="text" id="thing"/>'
         ].join(''),
-        opts: { 'label-for': 'strict' },
+        opts: { 'label-req-for': 'strict' },
         output: 0
     }, {
         desc: 'should fail label with only child in strict mode',
@@ -14,7 +14,7 @@ module.exports = [
             '<input type="text" id="thing"/>',
             '</label>'
         ].join(''),
-        opts: { 'label-for': 'strict' },
+        opts: { 'label-req-for': 'strict' },
         output: 1
     }, {
         desc: 'should pass label with only child in nonstrict mode',
@@ -23,7 +23,7 @@ module.exports = [
             '<input type="text" id="thing"/>',
             '</label>'
         ].join(''),
-        opts: { 'label-for': true },
+        opts: { 'label-req-for': true },
         output: 0
     }, {
         desc: 'should fail label with nonexistant for id',
@@ -32,7 +32,7 @@ module.exports = [
             '<input type="text" id="thing"/>',
             '</label>'
         ].join(''),
-        opts: { 'label-for': true },
+        opts: { 'label-req-for': true },
         output: 1
     }, {
         desc: 'should pass label for with child id',
@@ -41,7 +41,7 @@ module.exports = [
             '<input type="text" id="thing"/>',
             '</label>'
         ].join(''),
-        opts: { 'label-for': true },
+        opts: { 'label-req-for': true },
         output: 0
     }, {
         desc: 'should fail an unlabeable child in nonstrict',
@@ -50,7 +50,7 @@ module.exports = [
             '<p>not labeable</p>',
             '</label>'
         ].join(''),
-        opts: { 'label-for': true },
+        opts: { 'label-req-for': true },
         output: 1
     }, {
         desc: 'should fail an id that points to an unlabeable element',
@@ -58,7 +58,7 @@ module.exports = [
             '<label for="para"></label>',
             '<div id="para"></div>'
         ].join(''),
-        opts: { 'label-for': true },
+        opts: { 'label-req-for': true },
         output: 1
     }
 ];

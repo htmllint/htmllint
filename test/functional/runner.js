@@ -18,12 +18,13 @@ var testFiles = fs.readdirSync(__dirname)
         };
     });
 
-function doTest(funcTest) {
+function doTest(funcTest, testFile) {
     it(funcTest.desc, function () {
         // configure a new linter
-        var linter = htmllint.create(funcTest.rules);
+        var linter = htmllint.create(funcTest.rules),
+            opts = funcTest.opts || testFile.defaults;
 
-        var output = linter.lint(funcTest.input, funcTest.opts),
+        var output = linter.lint(funcTest.input, opts),
             expected = funcTest.output;
 
         if (lodash.isNumber(expected)) {
@@ -58,9 +59,12 @@ testFiles.forEach(function (testFile) {
             if (!test.hasOwnProperty('rules')) {
                 // if no rules are specified, use the filename
                 test.rules = [testFile.name];
+                if (!test.defaults) {
+                    test.defaults = {};
+                }
             }
 
-            doTest(test);
+            doTest(test, testFile);
         });
     });
 });

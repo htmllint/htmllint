@@ -6,17 +6,17 @@ module.exports = [
     }, {
         desc: 'should match options if user sets them',
         input: '<body><button style=""></button><main></main></body>',
-        opts: { 'disallowed-tags': ['button', 'main'] },
+        opts: { 'tag-bans': ['button', 'main'] },
         output: 2
     }, {
         desc: 'should not match defaults if user sets new elements in options',
         input: '<body><style></style><i></i></body>',
-        opts: { 'disallowed-tags': ['button', 'main'] },
+        opts: { 'tag-bans': ['button', 'main'] },
         output: 0
     }, {
         desc: 'should not match when disabled',
         input: '<body><button style=""></button><main></main></body>',
-        opts: { 'disallowed-tags': false },
+        opts: { 'tag-bans': false },
         output: 0
     }
 ];
