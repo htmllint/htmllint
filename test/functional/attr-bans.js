@@ -14,5 +14,10 @@ module.exports = [
         input: '<button style="color: red;"></button>',
         opts: { 'attr-bans': false },
         output: 0
+    }, {
+        desc: 'should match banned if specified',
+        input: '<body banned></body>',
+        opts: { 'attr-bans': ['banned'] },
+        output: 1
     }
 ];
