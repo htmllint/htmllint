@@ -40,7 +40,7 @@ module.exports = [
             '<label for="thing">',
             '<input type="text" id="thing"/>',
             '</label>'
-        ],
+        ].join(''),
         opts: { 'label-for': true },
         output: 0
     }, {
@@ -49,7 +49,7 @@ module.exports = [
             '<label>',
             '<p>not labeable</p>',
             '</label>'
-        ],
+        ].join(''),
         opts: { 'label-for': true },
         output: 1
     }, {
@@ -57,7 +57,7 @@ module.exports = [
         input: [
             '<label for="para"></label>',
             '<div id="para"></div>'
-        ],
+        ].join(''),
         opts: { 'label-for': true },
         output: 1
     }
