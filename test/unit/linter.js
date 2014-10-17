@@ -1,3 +1,5 @@
+var knife = require('../../lib/knife');
+
 describe('linter', function () {
     var Linter = require('../../lib/linter');
 
@@ -66,7 +68,7 @@ describe('linter', function () {
         var linter = new Linter();
 
         it('should return an array', function () {
-            var output = linter.shred('');
+            var output = knife.shred('');
             expect(output).to.be.an.instanceOf(Array);
         });
 
@@ -76,7 +78,7 @@ describe('linter', function () {
                 'Line2Line2Line2Line2',
                 'Line3Line3Line3Line3'
             ];
-            var output = linter.shred(lines.join('\n').concat('\n'));
+            var output = knife.shred(lines.join('\n').concat('\n'));
 
             expect(output.length - 1).to.be.eql(lines.length);
         });
@@ -88,7 +90,7 @@ describe('linter', function () {
                 'Line3Line3Line3Line3'
             ];
             var concatted = lines.join('\n').concat('\n');
-            var output = linter.shred(concatted);
+            var output = knife.shred(concatted);
 
             expect(output[lines.length].line).to.be.eql(lines[lines.length - 1].concat('\n'));
             expect(output[lines.length].index).to.be.eql(concatted.indexOf(lines[lines.length - 1].concat('\n')));

@@ -6,7 +6,7 @@ module.exports = [
         output: 1
     }, {
         desc: 'should match single quoted attr in double mode',
-        input: "<button disabled=''></button",
+        input: "<button disabled=''></button>",
         opts: { 'attr-quote-style': 'double' },
         output: 1
     }, {

@@ -20,7 +20,7 @@ describe('linter', function () {
               ,'  </div>\n'
               ,'</body>\n'
             ].join(''));
-
+            
             expect(output[0].openLineCol).to.be.eql([1,1]);
             expect(output[0].closeLineCol).to.be.eql([5,1]);
             expect(output[0].children[1].openLineCol).to.be.eql([2,3]);
