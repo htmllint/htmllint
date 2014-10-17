@@ -9,5 +9,6 @@
     space-after-keywords: 2
     space-infix-ops: 2
     new-cap: 2
+    eol-last: 0
   env:
     node: true

@@ -16,7 +16,7 @@ module.exports = [
         input: '<div><p id="mine&ours" class="yours>mine"></p></div>',
         opts: { 'spec-char-escape': true },
         output: 1
-    }, 
+    },
     {
         desc: 'should catch just text that is just spaces',
         input: '<div><p>   </p></div>',

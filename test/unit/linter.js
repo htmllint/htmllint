@@ -65,8 +65,6 @@ describe('linter', function () {
     });
 
     describe('shred', function () {
-        var linter = new Linter();
-
         it('should return an array', function () {
             var output = knife.shred('');
             expect(output).to.be.an.instanceOf(Array);

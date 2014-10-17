@@ -22,5 +22,5 @@ module.exports = [
         input: '<body><div class="mdo" class="hey"><p id="Whaddup" id="fat">Text</p></div></body>',
         opts: { 'attr-no-duplication': true },
         output: 2
-    },
+    }
 ];
