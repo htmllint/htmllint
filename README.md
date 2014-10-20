@@ -36,6 +36,12 @@ $ node # start node in the root dir of the repo
 Release History
 ---------------
 
+### v0.0.8
+
+* added more rules
+* should be browserifiable
+* renamed rules to fit a better convention
+
 ### v0.0.7
 
 * added rules:
