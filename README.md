@@ -36,6 +36,11 @@ $ node # start node in the root dir of the repo
 Release History
 ---------------
 
+### v0.0.9
+
+* added no-unsafe-char rule
+* corrected some (line, col) for attribute rules
+
 ### v0.0.8
 
 * added more rules
