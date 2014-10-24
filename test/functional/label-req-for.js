@@ -1,5 +1,14 @@
 module.exports = [
     {
+        desc: 'should pass when set to false',
+        input: [
+            '<label for="noexist">',
+            '<input type="text" id="thing"/>',
+            '</label>'
+        ].join(''),
+        opts: { 'label-req-for': false },
+        output: 0
+    }, {
         desc: 'should pass valid for attr in strict mode',
         input: [
             '<label for="thing">The Thing</label>',
