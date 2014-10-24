@@ -1,0 +1,55 @@
+Release History
+---------------
+
+### v0.0.9
+
+* added no-unsafe-char rule
+* corrected some (line, col) for attribute rules
+
+### v0.0.8
+
+* added more rules
+* should be browserifiable
+* renamed rules to fit a better convention
+
+### v0.0.7
+
+* added rules:
+  * attr-value-quotes
+  * img-src-not-empty
+  * label-for
+  * tag-self-close
+* fixed tag-name-lowercase bug
+
+### v0.0.6
+
+* fixed some runtime errors in a few rules
+* fixed index errors that would occur on multiple runs
+of the parser
+
+### v0.0.5
+
+* fixed line,col output bug
+* added label-for rule
+
+### v0.0.4
+
+* added id-unique rule
+* extended parser output
+* refactored rules to fit new rule processing framework
+* added presets (envs)
+
+### v0.0.3
+
+* added jsdoc
+* added more rules
+* added functional test suite
+
+### v0.0.2
+
+* added more rules
+* added htmlparser2, rules run on an AST now
+
+### v0.0.1
+
+* added basic scraper for inline styles using regex
