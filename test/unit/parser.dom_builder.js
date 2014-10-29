@@ -17,4 +17,14 @@ describe('parser.dom_builder', function () {
         expect(builder._addDomElement.bind(builder)).to.throw(Error);
         /*eslint-enable no-underscore-dangle*/
     });
+
+    describe('onerror', function () {
+        it('should throw the error', function () {
+            var builder = new DomBuilder();
+
+            expect(function () {
+                builder.onerror('error');
+            }).to.throw();
+        });
+    });
 });

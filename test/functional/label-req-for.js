@@ -64,8 +64,10 @@ module.exports = [
     }, {
         desc: 'should fail an id that points to an unlabeable element',
         input: [
+            '<btn></btn><div>',
             '<label for="para"></label>',
-            '<div id="para"></div>'
+            '<div id="para"></div>',
+            '</div>'
         ].join(''),
         opts: { 'label-req-for': true },
         output: 1
