@@ -20,4 +20,15 @@ describe('htmllint', function () {
             htmllint(sanityHtml);
         }).to.not.throw(Error);
     });
+
+    describe('create', function () {
+        it('should registe rule objects', function () {
+            var rule = { name: 'therule' };
+
+            var linter = htmllint.create([rule]);
+            var addedRule = linter.rules.getRule(rule.name);
+
+            expect(addedRule).to.be.equal(rule);
+        });
+    });
 });
