@@ -19,5 +19,10 @@ module.exports = [
         input: '<!DOCTYPE html SYSTEM "about:legacy-compat">',
         opts: { 'doctype-html5': true },
         output: 1
+    }, {
+        desc: 'should pass a random directive',
+        input: '<!random g>',
+        opts: { 'doctype-html5': true },
+        output: 0
     }
 ];
