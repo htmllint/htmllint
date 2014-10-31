@@ -9,10 +9,6 @@ describe('htmllint.rules', function () {
                 expect(rule).to.have.property('name');
             });
 
-            it('should have a description', function () {
-                expect(rule).to.have.property('description');
-            });
-
             it('should have a name that matches the registered one', function () {
                 expect(rule.name).to.be.equal(ruleName);
             });
