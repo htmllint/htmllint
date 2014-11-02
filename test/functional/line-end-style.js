@@ -3,7 +3,7 @@ var input = [
     '  <p>\n',
     '    some\r',
     '    text\n',
-    '  <p>\r\n',
+    '  </p>\r\n',
     '</body>\r'
 ].join('');
 
@@ -30,3 +30,4 @@ module.exports = [
         output: 0
     }
 ];
+

@@ -3,7 +3,7 @@ module.exports = [
         desc: 'should match spaces when configured for tabs',
         input: [
             '<body>',
-            '  <p>hello<p>',
+            '  <p>hello</p>',
             '</body>'
         ].join('\n'),
         opts: { 'indent-style': 'tabs' },
