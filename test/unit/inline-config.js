@@ -129,8 +129,6 @@ describe('inline-configuration', function () {
     
     it('should take in presets', function () {
         original.splice(1, 0, '<!-- htmllint preset="$none" -->');
-        console.log(original);
-        console.log(original.join('\n') + '\n')
         output = lint(original.join('\n') + '\n');
 
         var expectation = [];
