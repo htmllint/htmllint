@@ -1,6 +1,6 @@
 {
   "name": "htmllint",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "An unofficial html5 linter.",
   "repository": {
     "type": "git",

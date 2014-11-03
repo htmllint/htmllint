@@ -1,6 +1,10 @@
 Release History
 ---------------
 
+### v0.0.11
+
+* added plugin support
+
 ### v0.0.10
 
 * added inline configuration
