@@ -18,4 +18,4 @@ you use one of the following modules to run the linter:
 To learn more about the options and usage of htmllint, check out the
 [user manual](https://github.com/htmllint/htmllint/wiki/htmllint-manual).
 
-[![npm](https://nodei.co/npm/htmllint.png?downloads=true&downloadRank=true&stars=true)](https://npmsjs.org/package/htmllint)
+[![npm](https://nodei.co/npm/htmllint.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/htmllint)
