@@ -5,10 +5,18 @@ describe('htmllint', function () {
         expect(htmllint).to.be.an.instanceOf(Function);
     });
 
-    it('should return an array', function () {
+    it('should return a thenable', function () {
+        var thenable = htmllint('');
+
+        expect(thenable).to.have.property('then');
+    });
+
+    it('should eventually return an array', function () {
         var result = htmllint('');
 
-        expect(result).to.be.an.instanceOf(Array);
+        return result.then(function (output) {
+            expect(output).to.be.an.instanceOf(Array);
+        });
     });
 
     it('should not throw on sanity.html', function () {
@@ -19,16 +27,5 @@ describe('htmllint', function () {
         expect(function () {
             htmllint(sanityHtml);
         }).to.not.throw(Error);
-    });
-
-    describe('create', function () {
-        it('should registe rule objects', function () {
-            var rule = { name: 'therule' };
-
-            var linter = htmllint.create([rule]);
-            var addedRule = linter.rules.getRule(rule.name);
-
-            expect(addedRule).to.be.equal(rule);
-        });
     });
 });
