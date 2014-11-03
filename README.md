@@ -6,16 +6,32 @@
 
 > An unofficial html5 linter and validator.
 
+htmllint uses a parser to get the DOM for your html. It then runs uses the provided rules (and default rules) to lint both the DOM and then individual lines. [Take a look at the supported options](https://github.com/htmllint/htmllint/wiki/Options).
+
 Getting Started
 ---------------
 
-This module doesn't provide any cli interface on it's own. It's highly recommended that
-you use one of the following modules to run the linter:
+You can use htmllint in Node.JS by using   
+```
+require('htmllint')  
+```
+in your code, and doing an install with  
+```
+npm install htmllint
+```
+(Remember `--save-dev` if this is just for your development).  
 
-* [`grunt-htmllint`](https://github.com/htmllint/grunt-htmllint): a grunt plugin for htmllint
-* [`htmllint-cli`](https://github.com/htmllint/htmllint-cli): a cli interface for htmllint (NOTE: not complete at the moment)
+### Now What?
 
 To learn more about the options and usage of htmllint, check out the
 [user manual](https://github.com/htmllint/htmllint/wiki/htmllint-manual).
+  
+Other Interfaces
+----------------
+
+This module doesn't provide any cli interface on its own. It's highly recommended that
+you use one of the following modules to run the linter:
+* [`grunt-htmllint`](https://github.com/htmllint/grunt-htmllint): a grunt plugin for htmllint
+* [`htmllint-cli`](https://github.com/htmllint/htmllint-cli): a cli interface for htmllint (NOTE: not complete at the moment)
 
 [![npm](https://nodei.co/npm/htmllint.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/htmllint)
