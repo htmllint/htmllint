@@ -15,4 +15,7 @@ you use one of the following modules to run the linter:
 * [`grunt-htmllint`](https://github.com/htmllint/grunt-htmllint): a grunt plugin for htmllint
 * [`htmllint-cli`](https://github.com/htmllint/htmllint-cli): a cli interface for htmllint (NOTE: not complete at the moment)
 
+To learn more about the options and usage of htmllint, check out the
+[user manual](https://github.com/htmllint/htmllint/wiki/htmllint-manual).
+
 [![npm](https://nodei.co/npm/htmllint.png?downloads=true&downloadRank=true&stars=true)](https://npmsjs.org/package/htmllint)
