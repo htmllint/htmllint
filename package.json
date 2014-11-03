@@ -30,7 +30,8 @@
   "dependencies": {
     "bulk-require": "^0.2.1",
     "htmlparser2": "^3.7.3",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "promise": "^6.0.1"
   },
   "browserify": {
     "transform": [
