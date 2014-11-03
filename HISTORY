@@ -1,6 +1,11 @@
 Release History
 ---------------
 
+### v0.0.10
+
+* added inline configuration
+* changed `Linter.lint` to return a promise, allowing async rules
+
 ### v0.0.9
 
 * added no-unsafe-char rule

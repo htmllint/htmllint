@@ -1,7 +1,7 @@
 {
   "name": "htmllint",
-  "version": "0.0.9",
-  "description": "Unofficial html5 linter and validator.",
+  "version": "0.0.10",
+  "description": "An unofficial html5 linter.",
   "repository": {
     "type": "git",
     "url": "http://github.com/htmllint/htmllint"
