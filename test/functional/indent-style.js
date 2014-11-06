@@ -70,7 +70,7 @@ module.exports = [
             '      <div>Hey</div>',
             '</body>'
         ].join('\n'),
-        opts: { 'indent-style': 'false' },
+        opts: { 'indent-style': false },
         output: 0
     }, {
         desc: 'should match mixed indents by default',
