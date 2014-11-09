@@ -7,25 +7,6 @@ describe('linter', function () {
         expect(Linter).to.be.an.instanceOf(Function);
     });
 
-    describe('addRule', function () {
-        var linter = null;
-
-        beforeEach(function () {
-            linter = new Linter();
-        });
-
-        it('should add a named rule', function () {
-            var rule = {
-                name: '$$testrule'
-            };
-
-            linter.addRule(rule);
-            var registered = linter.rules.getRule('$$testrule');
-
-            expect(registered).to.be.equal(rule);
-        });
-    });
-
     describe('lint', function () {
         var ConstRule = require('../fixtures/const_rule');
         var linter = null;
