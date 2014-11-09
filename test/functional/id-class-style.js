@@ -24,5 +24,10 @@ module.exports = [
         input: '<div id="abc" class="fowj-awo3-fqowj"></div>',
         opts: { 'id-class-style': 'dash' },
         output: 0
+    }, {
+        desc: 'should accept a class or id property that specifies multiple names',
+        input: '<div id="dogecoin litecoin fedoracoin" class="pls no"></div>',
+        opts: {'id-class-style': 'lowercase'},
+        output: 0
     }
 ];
