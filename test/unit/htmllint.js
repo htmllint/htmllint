@@ -28,4 +28,19 @@ describe('htmllint', function () {
             htmllint(sanityHtml);
         }).to.not.throw(Error);
     });
+
+    describe('use', function () {
+        it('should register a plugin on the defaultLinter', function () {
+            var rule = {
+                name: 'testrule'
+            }, plugins = [
+                'chai',
+                { rules: [rule] }
+            ];
+
+            htmllint.use(plugins);
+
+            expect(htmllint.defaultLinter.rules.getRule(rule.name)).to.be.eql(rule);
+        });
+    });
 });
