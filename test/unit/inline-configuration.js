@@ -68,7 +68,6 @@ describe('inline-configuration', function () {
             ];
             var result = meetExpectations(output, expectation);
 
-            if (!result) console.log(output);
             expect(result).to.be.eql(true);
         });
     });
@@ -90,7 +89,6 @@ describe('inline-configuration', function () {
             ];
             var result = meetExpectations(output, expectation);
 
-            if (!result) console.log(output);
             expect(result).to.be.eql(true);
         });
     });
@@ -119,7 +117,6 @@ describe('inline-configuration', function () {
             ];
             var result = meetExpectations(output, expectation);
 
-            if (!result) console.log(output);
             expect(result).to.be.eql(true);
         });
     });
@@ -131,7 +128,6 @@ describe('inline-configuration', function () {
             var expectation = [];
             var result = meetExpectations(output, expectation);
 
-            if (!result) console.log(output);
             expect(result).to.be.eql(true);
         });
     });
