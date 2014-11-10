@@ -1,6 +1,12 @@
 Release History
 ---------------
 
+### v0.0.12
+
+* allows custom regex for formats in most rules
+* removed `linter.addRule(rule)` in favor of `linter.use(plugin)`
+* raised test coverage back up to near 100%
+
 ### v0.0.11
 
 * added plugin support
