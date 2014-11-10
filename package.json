@@ -6,6 +6,9 @@
     "type": "git",
     "url": "http://github.com/htmllint/htmllint"
   },
+  "keywords": [
+      "html", "lint", "hint"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js travis"
