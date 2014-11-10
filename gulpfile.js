@@ -42,6 +42,7 @@ gulp.task('test', ['istanbul'], function (done) {
     // expose globals here for now
     // move these into their own file if they grow
     global.chai = require('chai');
+    global.chai.use(require('chai-as-promised'));
     global.expect = global.chai.expect;
 
     gulp.src(paths.test, {read:false})
