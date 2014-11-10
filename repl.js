@@ -11,11 +11,14 @@ ctx.htmllint = htmllint;
 ctx.lint = function () {
     var promise = ctx.htmllint.apply(ctx.htmllint, arguments);
 
-    promise.then(function (issues) {
-        ctx['_'] = issues;
+    function handler(result) {
+        ctx['_'] = result;
 
-        console.log(issues);
-    });
+        console.log(result);
+        console.log('You can access the results in the "_" obj');
+    }
+
+    promise.then(handler, handler);
 };
 
 
