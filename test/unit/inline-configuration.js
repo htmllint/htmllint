@@ -48,22 +48,22 @@ describe('inline-configuration', function () {
         return lint(original.join('\n') + '\n').then(function (output) {
             var expectation = [
                 {
-                    name: 'line-end-style',
+                    code: 'E015',
                     line: 3
                 },
                 {
-                    name: 'line-end-style',
+                    code: 'E015',
                     line: 8
                 },
                 {
-                    name: 'line-end-style',
+                    code: 'E015',
                     line: 17
                 },
                 {
-                    name: 'id-no-dup'
+                    code: 'E012'
                 },
                 {
-                    name: 'id-class-no-ad'
+                    code: 'E010'
                 }
             ];
             var result = meetExpectations(output, expectation);
@@ -72,19 +72,19 @@ describe('inline-configuration', function () {
         });
     });
 
-    it('should change rules to turn them off', function () {
+    it('should change options to turn off rules', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="false" -->');
         return lint(original.join('\n') + '\n').then(function (output) {
             var expectation = [
                 {
-                    name: 'line-end-style',
+                    code: 'E015',
                     line: 3
                 },
                 {
-                    name: 'id-no-dup'
+                    code: 'E012'
                 },
                 {
-                    name: 'id-class-no-ad'
+                    code: 'E010'
                 }
             ];
             var result = meetExpectations(output, expectation);
@@ -109,6 +109,7 @@ describe('inline-configuration', function () {
 
         lint(original.join('\n') + '\n').then(function (output) {
 
+            // TODO: examine this test case, it passes when it probably shouldn't >.>
             var expectation = [
                 {
                     name: 'line-end-style',
