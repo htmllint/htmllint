@@ -1,19 +1,19 @@
 var knife = require('../../lib/knife');
 
 describe('linter', function () {
-    var Linter = require('../../lib/linter');
+    var Linter = require('../../lib/linter'),
+        linter = null;
 
     it('should be a function', function () {
         expect(Linter).to.be.an.instanceOf(Function);
     });
 
+    beforeEach(function () {
+        linter = new Linter();
+    });
+
     describe('lint', function () {
         var ConstRule = require('../fixtures/const_rule');
-        var linter = null;
-
-        beforeEach(function () {
-            linter = new Linter();
-        });
 
         xit('should return correct line and column numbers', function () {
             var rule = new ConstRule([{
@@ -43,6 +43,20 @@ describe('linter', function () {
             output = linter.lint('f\nfff', { maxerr: 1 });
 
             expect(output.length).to.be.eql(1);
+        });
+    });
+
+    describe('resetRules', function () {
+        it('should return an array of issues', function () {
+            var issue = { msg: 'hit' };
+
+            linter.rules.addRule({
+                end: function () { return issue; }
+            });
+
+            var output = linter.resetRules();
+
+            expect(output[0]).to.be.eql(issue);
         });
     });
 
