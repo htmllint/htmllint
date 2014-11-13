@@ -1,6 +1,13 @@
 Release History
 ---------------
 
+### v0.2.0
+
+* added html-req-lang rule
+* added error codes
+* added keywords to the npm package
+* changed linter so that rules can emit issues on `end` calls
+
 ### v0.0.12
 
 * allows custom regex for formats in most rules
