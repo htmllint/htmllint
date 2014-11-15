@@ -66,8 +66,7 @@ function doTest(funcTest, testFile) {
                 });
                 expect(output).to.have.length(expected.length);
             }
-            cb();
-        });
+        }).then(cb, cb);
     });
 }
 
