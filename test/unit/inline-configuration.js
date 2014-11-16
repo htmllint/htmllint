@@ -105,7 +105,7 @@ describe('inline-configuration', function () {
         });
     });
 
-    it('should fail on invalid $preset', function () {
+    it('should throw on invalid $preset', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$invalid" -->');
         expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
     });
@@ -137,7 +137,12 @@ describe('inline-configuration', function () {
     });
 
     it('should throw on invalid option value', function () {
-        original.splice(4, 0, '<!-- htmllint line-end-style="false" -->');
+        original.splice(4, 0, '<!-- htmllint line-end-style="fal#se" -->');
+        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+    });
+
+    it('should throw on invalid rule name', function () {
+        original.splice(3, 0, '<!-- htmllint pre#set="none" -->');
         expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
     });
 
