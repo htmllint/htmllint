@@ -11,7 +11,7 @@ describe('rules.focusable-tabindex-style', function () {
 
             rule.end();
 
-            expect(rule.detectedStyle).to.be.null;
+            expect(rule.detectedStyle).to.be.eql(null);
         });
     });
 

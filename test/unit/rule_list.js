@@ -1,6 +1,6 @@
 describe('RuleList', function () {
-    var RuleList = require('../../lib/rule_list'),
-        ruleList = null,
+    var RuleList = require('../../lib/rule_list');
+    var ruleList = null,
         rule = null;
 
     beforeEach(function () {

@@ -11,7 +11,7 @@ describe('rules.doctype-first', function () {
 
         rule.lint(comment, opts);
 
-        expect(rule.passedFirst).to.be.false;
+        expect(rule.passedFirst).to.be.eql(false);
     });
 
     it('should not validate on spaces', function () {
@@ -20,6 +20,6 @@ describe('rules.doctype-first', function () {
 
         rule.lint(spaces, opts);
 
-        expect(rule.passedFirst).to.be.false;
+        expect(rule.passedFirst).to.be.eql(false);
     });
 });

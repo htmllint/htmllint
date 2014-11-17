@@ -1,5 +1,5 @@
 var lint = require('../../'),
-    inlineConfig = require('../../lib/inline_config.js'),
+    InlineConfig = require('../../lib/inline_config.js'),
     lodash = require('lodash');
 
 var textSplit = [
@@ -65,11 +65,11 @@ describe('inline-configuration', function () {
     // Tests for inlineConfig internals
     // Should instantiate an object rather than using the prototype
     it('should throw when indices are passed to getOptsAtInex out of order', function () {
-        expect(inlineConfig.prototype.getOptsAtIndex.bind(this,-10))
+        expect(InlineConfig.prototype.getOptsAtIndex.bind(this,-10))
             .to.throw();
     });
     it('should throw when a config is added twice', function () {
-        var c = new inlineConfig(original);
+        var c = new InlineConfig(original);
         c.addConfig({end: 5});
         expect(c.addConfig.bind(c,{end: 5})).to.throw();
     });

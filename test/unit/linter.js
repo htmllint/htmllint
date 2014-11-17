@@ -1,8 +1,8 @@
 var knife = require('../../lib/knife');
 
 describe('linter', function () {
-    var Linter = require('../../lib/linter'),
-        linter = null;
+    var Linter = require('../../lib/linter');
+    var linter = null;
 
     it('should be a function', function () {
         expect(Linter).to.be.an.instanceOf(Function);

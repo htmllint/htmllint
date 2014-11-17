@@ -14,6 +14,6 @@ describe('knife.is_labeable', function () {
 
         var output = knife.isLabeable(ele);
 
-        expect(output).to.be.false;
+        expect(output).to.be.eql(false);
     });
 });
