@@ -105,6 +105,15 @@ describe('inline-configuration', function () {
         });
     });
 
+    it('should use allow $previous to revert value', function () {
+        original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
+                            + '<!-- htmllint line-end-style="$previous" -->');
+        return lint(original.join('\n') + '\n').then(function (output) {
+            var result = meetExpectations(output, expfalse);
+            expect(result).to.be.eql(true);
+        });
+    });
+
     it('should throw on invalid $preset', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$invalid" -->');
         expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
