@@ -34,5 +34,5 @@ module.exports = [
         input: '<table><p>Hey</p><p>Hey</p><p>Hey</p><p>Hey</p><p>Hey</p><caption>Hello</caption></table>',
         opts: { 'table-req-caption': true },
         output: 0
-    },
+    }
 ];
