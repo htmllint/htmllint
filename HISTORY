@@ -1,6 +1,13 @@
 Release History
 ---------------
 
+### v0.2.1
+
+* changed maxerr to allow a value of `false` to disable error
+throttling
+* fixed some ambiguity issues with inline configuration
+* added some rules
+
 ### v0.2.0
 
 * added html-req-lang rule
