@@ -24,6 +24,11 @@ module.exports = [
         opts: { 'line-end-style': 'crlf' },
         output: 5
     }, {
+        desc: 'should not match empty lines',
+        input: ['<div>','','</div>'].join('\n') + '\n',
+        opts: { 'line-end-style': 'lf' },
+        output: 0
+    }, {
         desc: 'should not match anything when set to false',
         input: input,
         opts: { 'line-end-style': false },

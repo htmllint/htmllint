@@ -5,12 +5,12 @@ var lint = require('../../'),
 var textSplit = [
     '<!DOCTYPE html>', // 15
     '<html>', // 6
-    '', // 0
+    '\r', // 0
     '<head>', // 6
     '\t<meta charset="utf-8" />',
     '\t<title>Hello, World!</title>',
     '</head>',
-    '',
+    '\r',
     '<body>',
     '\t<h1 id="heading">Heading</h1>',
     '\t<p>Paragraph</p>',
@@ -19,7 +19,7 @@ var textSplit = [
     '\t\t<div class="ad">This inside that</div>',
     '\t</div>',
     '</body>',
-    '',
+    '\r',
     '</html>'
 ];
 
