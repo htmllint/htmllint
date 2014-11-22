@@ -34,5 +34,5 @@ module.exports = [
         input: '<figure><p>1</p><p>2</p><p>3</p><p>4</p><figcaption></figcaption></figure>',
         opts: { 'fig-req-figcaption': true },
         output: 0
-    },
+    }
 ];
