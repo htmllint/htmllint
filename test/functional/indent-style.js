@@ -72,15 +72,39 @@ module.exports = [
         ].join('\n'),
         opts: { 'indent-style': false },
         output: 0
-    }, {
-        desc: 'should match mixed indents by default',
+    },
+    {
+        desc: 'indent-width should match indents with the wrong number of spaces',
         input: [
             '<body>',
-            '\t\t<p>this not okay</p>',
-            '\t\t<p>this not okay</p>',
-            '      <div>Hey</div>',
+            '       <p>this not okay</p>',
+            '  \t  <p>this not okay</p>',
+            '        <div>Hey</div>',
             '</body>'
         ].join('\n'),
-        output: 1
+        opts: { 'indent-width': 4 },
+        output: 2
+    }, {
+        desc: 'indent-width should not match when set to false',
+        input: [
+            '<body>',
+            '       <p>this not okay</p>',
+            '  \t  <p>this not okay</p>',
+            '        <div>Hey</div>',
+            '</body>'
+        ].join('\n'),
+        opts: { 'indent-width': false },
+        output: 0
+    }, {
+        desc: 'indent-width should work with strange indent widths',
+        input: [
+            '<body>',
+            '          <p>this is fine</p>',
+            '        <p>this not okay</p>',
+            '\t        <div>Hey</div>',
+            '</body>'
+        ].join('\n'),
+        opts: { 'indent-width': 5 },
+        output: 2
     }
 ];
