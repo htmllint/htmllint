@@ -1,7 +1,8 @@
 var fs = require('fs'),
     path = require('path'),
     lodash = require('lodash'),
-    htmllint = require('../../lib');
+    htmllint = require('../../lib'),
+    presets = require('../../lib/presets');
 
 // find all files in this directory that are .js files
 var testFiles = fs.readdirSync(__dirname)
@@ -40,7 +41,7 @@ function doTest(funcTest, testFile) {
         var linter = createLinter(funcTest.rules),
             opts = funcTest.opts || testFile.defaults;
 
-        var promise = linter.lint(funcTest.input, opts),
+        var promise = linter.lint(funcTest.input, presets.presets.none, opts),
             expected = funcTest.output;
 
         promise.then(function (output) {
