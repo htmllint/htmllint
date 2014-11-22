@@ -34,5 +34,11 @@ module.exports = [
         input: '<table><caption>DOGS</caption><tr><th>Hey</th></tr></table>',
         opts: { 'table-req-header': true },
         output: 0
+    },
+    {
+        desc: 'should pass when table has captions and thead',
+        input: '<table><caption>DOGS</caption><thead>Hey</thead></table>',
+        opts: { 'table-req-header': true },
+        output: 0
     }
 ];
