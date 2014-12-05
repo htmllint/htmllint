@@ -10,8 +10,9 @@ htmllint uses a parser to get the DOM for your html. It then runs uses the provi
 
 Using htmllint
 --------------
+If you'd like to run htmllint, we have a few options.
 
-This module doesn't provide any cli interface on its own. It's highly recommended that
+This module doesn't provide any interface on its own. It is highly recommended that
 you use one of the following modules to run the linter:
 * [`grunt-htmllint`](https://github.com/htmllint/grunt-htmllint): a grunt plugin for htmllint
 * [`htmllint-cli`](https://github.com/htmllint/htmllint-cli): a cli interface for htmllint (NOTE: not complete at the moment)
