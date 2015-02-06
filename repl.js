@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 var repl = require('repl');
 var ctx = repl.start('>> ').context;
