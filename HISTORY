@@ -1,6 +1,11 @@
 Release History
 ---------------
 
+### v0.2.3
+
+* added some svg void elements
+* a few bug fixes
+
 ### v0.2.2
 
 * added table-req-header rule
