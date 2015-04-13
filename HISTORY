@@ -1,6 +1,10 @@
 Release History
 ---------------
 
+### v0.2.4
+
+* renamed "attr-no-duplication" to "attr-no-dup"
+
 ### v0.2.3
 
 * added some svg void elements
