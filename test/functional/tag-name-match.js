@@ -19,5 +19,10 @@ module.exports = [
         input: '<HTML><section></seCtion></html>',
         opts: { 'tag-name-match': true },
         output: 2
+    }, {
+        desc: 'should not fail for self-closing tags',
+        input: '<html><br/></html>',
+        opts: { 'tag-name-match': true },
+        output: 0
     }
 ];
