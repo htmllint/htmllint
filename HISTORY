@@ -1,6 +1,13 @@
 Release History
 ---------------
 
+### v0.2.5
+
+* fixed some bugs with tag-name-match (#102)
+* added script to the list of tags checked by tag-bans
+* made error messages more consistent in style (#103)
+* fixed focusable-tabindex-style (#104)
+
 ### v0.2.4
 
 * renamed "attr-no-duplication" to "attr-no-dup"
