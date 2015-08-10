@@ -29,5 +29,15 @@ module.exports = [
         input: '<div id="dogecoin litecoin fedoracoin" class="pls no"></div>',
         opts: {'id-class-style': 'lowercase'},
         output: 0
+    }, {
+        desc: 'should ignore classes and ids matching ignore regex',
+        input: '<div id="dogecoin {{l**i(tec/oin}} fedoracoin" class="pls {{no0 oO&}}"></div>',
+        opts: {'id-class-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},
+        output: 0
+    }, {
+        desc: 'should fail classes and ids not matching ignore regex',
+        input: '<div id="dogecoin {{l**i(tec/oin}} fe<doracoin" class="pls {{no0 oO&}}"></div>',
+        opts: {'id-class-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},
+        output: 1
     }
 ];
