@@ -35,6 +35,10 @@
         "desc": "* \"absolute\": All `href` tags must use absolute URLs. * \"relative\": All `href` tags must use relative URLs. * `false`: No restriction.",
         "default": false
     },
+    "id-class-ignore-regex": {
+        "desc": "A string giving a regular expression, or `false`. If set, `id`s and `class`es matching the regex are ignored for the id-class-style rule.",
+        "default": false
+    },
     "id-class-no-ad": {
         "desc": "If set, the values for the `id` and `class` attributes may not use the word \"ad\". This rule only restricts cases of the substring \"ad\" surrounded by non-alphanumeric characters.",
         "default": true
