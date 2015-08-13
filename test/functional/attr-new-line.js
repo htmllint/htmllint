@@ -45,8 +45,13 @@ module.exports = [
         opts: { 'attr-new-line': "+0" },
         output: 1
     }, {
-        desc: 'should match tags with two attribute in the row and with no-value attr for +0',
+        desc: 'should not match tags with two attribute in the row and with no-value attr for +0',
         input: '<phone-preview-ios\n        id="dsa"\n        trasclude>\n</phone-preview-ios>',
+        opts: { 'attr-new-line': "+0" },
+        output: 0
+    }, {
+        desc: 'should not match tags with 3 boolean attributes for',
+        input: '<picker-date\n            ng-model="campaignUiData.end_date"\n            name="endDate"\n            rome-options="endDateOption"\n            required\n            romemin\n            romemax>\n          </picker-date>',
         opts: { 'attr-new-line': "+0" },
         output: 0
     }
