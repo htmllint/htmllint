@@ -14,7 +14,8 @@ module.exports = [
         input: '<img src="test image.jpg" alt="test">',
         opts: { 'attr-req-value': true },
         output: 0
-    }, {
+    },
+    {
         desc: 'should fail when attribs aren`t valued',
         input: '<img src>',
         opts: { 'attr-req-value': true },
@@ -24,7 +25,8 @@ module.exports = [
         input: '<img src=>',
         opts: { 'attr-req-value': true },
         output: 1
-    }, {
+    },
+    {
         desc: 'should fail for empty attribs followed by correct ones',
         input: '<img src= alt="test">',
         opts: { 'attr-req-value': true },
