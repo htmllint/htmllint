@@ -1,6 +1,14 @@
 Release History
 ---------------
 
+### v0.2.6
+
+* added attr-new-line rule (special thanks to @knyga #115)
+* fixed attr-name-style issue #104 and #103
+* fixed html-req-lang issue #102
+* added id-class-ignore-regex option
+* added script to the list of tags to ban by default
+
 ### v0.2.5
 
 * fixed some bugs with tag-name-match (#102)
