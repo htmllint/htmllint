@@ -10,6 +10,11 @@ module.exports = [
         opts: { 'doctype-first': true },
         output: 0
     }, {
+        desc: 'should pass case-insensitive !DOCTYPE',
+        input: '<!DoCtYpE><div><p>Hello</p><p>World</p></div>',
+        opts: { 'doctype-first': true },
+        output: 0
+    }, {
         desc: 'should fail when !DOCTYPE is not present',
         input: '<section><div><p>Hello</p><p>World</p></div></section>',
         opts: { 'doctype-first': true },
