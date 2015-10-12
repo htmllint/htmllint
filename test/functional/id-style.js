@@ -20,24 +20,14 @@ module.exports = [
         opts: { 'id-style': 'dash' },
         output: 0
     }, {
-        desc: 'should accept an id property that specifies multiple names',
-        input: '<div id="dogecoin litecoin fedoracoin"></div>',
-        opts: {'id-style': 'lowercase'},
-        output: 0
-    },  {
         desc: 'should accept ids that use the BEM format',
         input: '<div id="pls-no"></div><div id="pls-no__yes"></div><div id="pls-no__yes--no"></div><div id="pls-no__yes-no--maybe"></div>',
         opts: {'id-style': 'bem'},
         output: 0
     }, {
         desc: 'should ignore ids matching ignore regex',
-        input: '<div id="dogecoin {{l**i(tec/oin}} fedoracoin"></div>',
+        input: '<div id="doge{{l**i(tec/oin}}coin"></div>',
         opts: {'id-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},
         output: 0
-    }, {
-        desc: 'should fail ids not matching ignore regex',
-        input: '<div id="dogecoin {{l**i(tec/oin}} fe<doracoin"></div>',
-        opts: {'id-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},
-        output: 1
     }
 ];
