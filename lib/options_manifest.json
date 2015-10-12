@@ -47,13 +47,13 @@
         "desc": "If set, the values for the `id` and `class` attributes may not use the word \"ad\". This rule only restricts cases of the substring \"ad\" surrounded by non-alphanumeric characters.",
         "default": true
     },
+    "id-class-style": {
+        "desc": "A format specifier, or `false`. If set, `id`s and `class`es must fit the given format. May be overridden by `class-style` for `class`es.",
+        "default": "underscore"
+    },
     "id-no-dup": {
         "desc": "If set, values for the `id` attribute may not be duplicated across elements.",
         "default": true
-    },
-    "id-style": {
-        "desc": "A format specifier, or `false`. If set, `id`s must fit the given format.",
-        "default": "underscore"
     },
     "img-req-alt": {
         "desc": "If set, the `alt` property must be set for `img` tags.",
