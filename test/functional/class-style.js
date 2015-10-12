@@ -39,5 +39,10 @@ module.exports = [
         input: '<div class="pls {{no0 oO&}} fe<doracoin"></div>',
         opts: {'class-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},
         output: 1
+    }, {
+        desc: 'should use id-class-style option if class-style is false',
+        input: '<div class="fojf*ovo"></div>',
+        opts: { 'class-style': false, 'id-class-style': 'lowercase' },
+        output: 1
     }
 ];
