@@ -1,6 +1,13 @@
 Release History
 ---------------
 
+### v0.2.7
+
+* fixed an issue where attributes were processed out of order
+* changed doctype-first rule to match !DOCTYPE case-insensitive (issue #116)
+* added class-style option (essentially the same as id-class-style, but only
+on class, not ids)
+
 ### v0.2.6
 
 * added attr-new-line rule (special thanks to @knyga #115)
