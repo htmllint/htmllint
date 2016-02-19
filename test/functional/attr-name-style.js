@@ -12,7 +12,7 @@ module.exports = [
     }, {
         desc: 'should pass ignore attribute',
         input: '<div abc="" xlink:href=""></div>',
-        opts: { 'attr-name-style': 'dash', 'attr-name-style-ignore-regex': 'xlink:href' },
+        opts: { 'attr-name-style': 'dash', 'attr-name-ignore-regex': 'xlink:href' },
         output: 0
     }, {
         desc: 'should fail incorrectly styled attribute names',
