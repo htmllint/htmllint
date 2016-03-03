@@ -14,6 +14,16 @@ module.exports = [
         input: '<head></head>',
         opts: { 'head-req-title': true },
         output: 1
+    }, {
+        desc: 'head-req-title should fail when title is empty',
+        input: '<head><title></title></head>',
+        opts: { 'head-req-title': true },
+        output: 1
+    }, {
+        desc: 'head-req-title should pass when some title is nonempty',
+        input: '<head><title></title><title>For real this time</title></head>',
+        opts: { 'head-req-title': true },
+        output: 0
     },
     {
         desc: 'title-no-dup should pass when set to false',
