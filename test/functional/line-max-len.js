@@ -10,6 +10,11 @@ module.exports = [
     opts: { 'line-max-len': 5 },
     output: 0
   }, {
+    desc: 'should ignore line breaks',
+    input: '12345\r\n12345\n',
+    opts: { 'line-max-len': 5 },
+    output: 0
+  }, {
     desc: 'should fail when line length exceeds the maximum value',
     input: '123456',
     opts: { 'line-max-len': 5 },
