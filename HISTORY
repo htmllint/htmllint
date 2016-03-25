@@ -1,6 +1,17 @@
 Release History
 ---------------
 
+### v0.3.0
+
+* updated to current versions of all dependencies
+* corrected `id-style` bug
+* unified handling of `req` options (now fail on empty tag value)
+* added `attr-name-ignore-regex` option
+* corrected `head-req-title` to fail on empty title
+* added language tag verification (`lang-style`)
+* `none` preset is now dynamically generated
+* added line length testing (`max-line-len`)
+
 ### v0.2.7
 
 * fixed an issue where attributes were processed out of order
