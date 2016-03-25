@@ -34,6 +34,7 @@ gulp.task('lint', ['jscs'], function () {
 gulp.task('istanbul', function (done) {
     gulp.src(paths.src)
         .pipe(istanbul())
+        .pipe(istanbul.hookRequire())
         .on('finish', done);
 });
 
@@ -56,7 +57,7 @@ gulp.task('test', ['istanbul'], function (done) {
 // plato report
 // TODO: think bout this a bit more
 gulp.task('plato', function () {
-    var plato = require('gulp-plato');
+    var plato = require('plato');
     gulp.src(paths.src)
         .pipe(plato('report', {}));
 });
