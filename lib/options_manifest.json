@@ -59,6 +59,10 @@
         "desc": "If set, the `alt` property must be set for `img` tags.",
         "default": true
     },
+    "img-req-dimensions": {
+        "desc": "If set, the `width` and `height` properties must be set for `img` tags.",
+        "default": true
+    },
     "img-req-src": {
         "desc": "If set, a source must be given for each `img` tag.",
         "default": true
