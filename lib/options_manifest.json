@@ -23,6 +23,10 @@
         "desc": "If set, attribute values cannot be empty. This does not disallow the value `\"\"`.",
         "default": true
     },
+    "class-no-dup": {
+        "desc": "If set, the same class name(s) cannot be repeated within the same class attribute",
+        "default": true
+    },
     "class-style": {
         "desc": "A format specifier, or `false`. If set, `class`es must fit the given format.",
         "default": "underscore"
