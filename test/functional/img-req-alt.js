@@ -15,6 +15,16 @@ module.exports = [
         opts: { 'img-req-alt': true },
         output: 1
     }, {
+        desc: 'should not fail when img alt is null but value is "allownull"',
+        input: '<img src="nyannynyan.svg" alt="">',
+        opts: { 'img-req-alt': 'allownull' },
+        output: 0
+    }, {
+        desc: 'should fail when img alt is not given even if value is "allownull"',
+        input: '<img src="nyannynyan.svg" alt=>',
+        opts: { 'img-req-alt': 'allownull' },
+        output: 0
+    }, {
         desc: 'should not match non image elements without fallbacks',
         input: '<div>this should return 0</div>',
         opts: { 'img-req-alt': true },
