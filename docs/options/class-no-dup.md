@@ -1,1 +1,1 @@
-If set, values for the `class` attribute may not be duplicated
+If set, values in the `class` attribute may not be duplicated.

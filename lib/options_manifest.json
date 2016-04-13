@@ -24,7 +24,7 @@
         "default": true
     },
     "class-no-dup": {
-        "desc": "If set, the same class name(s) cannot be repeated within the same class attribute",
+        "desc": "If set, the same class name(s) cannot be repeated within the same class attribute.",
         "default": true
     },
     "class-style": {
