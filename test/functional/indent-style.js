@@ -72,6 +72,11 @@ module.exports = [
         ].join('\n'),
         opts: { 'indent-style': false },
         output: 0
+    }, {
+        desc: 'should work with lines containing only tabs',
+        input: '\t',
+        opts: { 'indent-style': false },
+        output: 0
     },
     {
         desc: 'indent-width should match indents with the wrong number of spaces',
