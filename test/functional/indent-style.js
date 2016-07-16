@@ -111,5 +111,39 @@ module.exports = [
         ].join('\n'),
         opts: { 'indent-width': 5 },
         output: 2
+    },
+    {
+        desc: 'indent-width-cont should match indents with the wrong number of spaces starting with <',
+        input: [
+            '<body>',
+            '        <p>eight spaces</p>',
+            '          <p>ten spaces</p>',
+            '     <div>five spaces</div>',
+            '</body>'
+        ].join('\n'),
+        opts: { 'indent-width': 4, 'indent-width-cont': true },
+        output: 2
+    }, {
+        desc: 'indent-width-cont should work with strange indent widths',
+        input: [
+            '<body>',
+            '        <p>eight spaces</p>',
+            '          <p>ten spaces</p>',
+            '     <div>five spaces</div>',
+            '</body>'
+        ].join('\n'),
+        opts: { 'indent-width': 5, 'indent-width-cont': true },
+        output: 1
+    }, {
+        desc: 'indent-width-cont should not match indents that do not start with <',
+        input: [
+            '<body>',
+            '        <div>eight spaces',
+            '          ten spaces',
+            '     five spaces</div>',
+            '</body>'
+        ].join('\n'),
+        opts: { 'indent-width': 4, 'indent-width-cont': true },
+        output: 0
     }
 ];
