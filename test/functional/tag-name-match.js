@@ -17,12 +17,27 @@ module.exports = [
     }, {
         desc: 'should fail for each non-matching set',
         input: '<HTML><section></seCtion></html>',
-        opts: { 'tag-name-match': true },
+        opts: { 'tag-name-match': true, 'tag-close': true },
         output: 2
     }, {
         desc: 'should not fail for self-closing tags',
         input: '<html><br/></html>',
         opts: { 'tag-name-match': true },
         output: 0
+    }, {
+        desc: 'should pass tag-close for properly closed tags',
+        input: '<html><div></div></html>',
+        opts: { 'tag-close': true },
+        output: 0
+    }, {
+        desc: 'should fail tag-close for non-closed tags',
+        input: '<html><div></html>',
+        opts: { 'tag-close': true },
+        output: 1
+    }, {
+        desc: 'should fail tag-close for improperly closed tags',
+        input: '<html><div></din></html>',
+        opts: { 'tag-close': true },
+        output: 1
     }
 ];
