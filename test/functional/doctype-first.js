@@ -29,5 +29,15 @@ module.exports = [
         input: '<!DOCTYPE><section><!DOCTYPE><div><p>Hello</p><p>World</p></div></section>',
         opts: { 'doctype-first': true },
         output: 0
+    }, {
+        desc: 'should pass in smart mode when !DOCTYPE and head are not present',
+        input: '<section><div><p>Hello</p><p>World</p></div></section>',
+        opts: { 'doctype-first': 'smart' },
+        output: 0
+    }, {
+        desc: 'should fail in smart mode when !DOCTYPE is not present but head is',
+        input: '<head></head><section><div><p>Hello</p><p>World</p></div></section>',
+        opts: { 'doctype-first': 'smart' },
+        output: 1
     }
 ];
