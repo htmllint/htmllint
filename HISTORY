@@ -1,6 +1,16 @@
 Release History
 ---------------
 
+### v0.4.0
+
+* add "allownull" as an option for `img-req-alt`
+* add `class-no-dup` option
+* allow inline configurations to use - and _ interchangeably
+* add "smart" as an option for `doctype-first`
+* update dependencies
+* add `tag-close` option
+* add `indent-width-cont` option
+
 ### v0.3.0
 
 * updated to current versions of all dependencies
