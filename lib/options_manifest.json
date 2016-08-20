@@ -27,6 +27,10 @@
         "desc": "If set, the same class name(s) cannot be repeated within the same class attribute.",
         "default": true
     },
+    "class-no-dup-separator": {
+        "desc": "A JavaScript RegEx expression, or `false`. If set, the `class-no-dup` option will use this expression to split the `class` tokens instead of the default method.",
+        "default": false
+    },
     "class-style": {
         "desc": "A format specifier, or `false`. If set, `class`es must fit the given format.",
         "default": "underscore"

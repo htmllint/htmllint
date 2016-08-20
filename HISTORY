@@ -1,6 +1,9 @@
 Release History
 ---------------
 
+### v.Next
+* add `class-no-dup-split-separator` option
+
 ### v0.4.0
 
 * add "allownull" as an option for `img-req-alt`
