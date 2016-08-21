@@ -46,19 +46,29 @@ module.exports = [
         opts: { 'tag-self-close': false },
         output: 0
     }, {
-        desc: 'should not match non-self-closing tags when disabled',
+        desc: 'tag-name-match or tag-close should not match non-self-closing tags',
         input: '<img>',
         opts: { 'tag-self-close': false, 'tag-name-match': true, 'tag-close': true },
         output: 0
     }, {
-        desc: 'should match non self-closing tags when enabled',
+        desc: 'should match non self-closing tags when set to always',
         input: '<img>',
-        opts: { 'tag-self-close': true },
+        opts: { 'tag-self-close': 'always' },
         output: 1
     }, {
-        desc: 'should not match self-closed tags when enabled',
+        desc: 'should not match self-closed tags when set to always',
         input: '<img/>',
-        opts: { 'tag-self-close': true },
+        opts: { 'tag-self-close': 'always' },
+        output: 0
+    }, {
+        desc: 'should match non self-closing tags when set to never',
+        input: '<img/>',
+        opts: { 'tag-self-close': 'never' },
+        output: 1
+    }, {
+        desc: 'should not match self-closed tags when set to never',
+        input: '<img>',
+        opts: { 'tag-self-close': 'never' },
         output: 0
     }
 ];
