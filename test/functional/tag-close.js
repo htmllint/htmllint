@@ -39,6 +39,16 @@ module.exports = [
         input: '<html><div></din></html>',
         opts: { 'tag-close': true },
         output: 1
+    }, {
+        desc: 'tag-close should correctly handle omitted optional </p>',
+        input: '<p> closed </p><p> not closed <p> closed </p>',
+        opts: { 'tag-close': 'always' },
+        output: 1
+    }, {
+        desc: 'tag-close should correctly handle omitted optional </head> and </body>',
+        input: '<head> unclosed <body> tags',
+        opts: { 'tag-close': 'always' },
+        output: 2
     },
     {
         desc: 'should not match non-self-closing tags when disabled',
