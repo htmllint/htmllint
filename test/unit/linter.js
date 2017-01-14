@@ -9,40 +9,48 @@ describe('linter', function () {
     });
 
     beforeEach(function () {
-        linter = new Linter();
+        linter = new Linter([
+            {name: 'dom',  lint: function () { return []; }},
+            {name: 'line', lint: function () { return []; }}
+        ]);
     });
 
     describe('lint', function () {
         var ConstRule = require('../fixtures/const_rule');
 
-        xit('should return correct line and column numbers', function () {
-            var rule = new ConstRule([{
-                msg: 'this is a test',
-                index: 4,
-                line: 2,
-                column: 3
-            }]), output;
+        var rule = new ConstRule([{
+            msg: 'this is a test',
+            index: 4,
+            line: 2,
+            column: 3
+        }, {
+            msg: 'this is a test',
+            index: 2
+        }]), output;
 
-            linter.addRule(rule);
-            output = linter.lint('f\nfff');
-
-            expect(output[0].line).to.be.eql(2);
-            expect(output[0].column).to.be.eql(3);
+        it('should return correct line and column numbers', function (cb) {
+            linter.rules.addRule(rule);
+            linter.lint('f\nfff')
+                .then(function (output) {
+                    expect(output[0].line).to.be.eql(2);
+                    expect(output[0].column).to.be.eql(3);
+                }).then(cb, cb);
         });
 
-        xit('should not return more than the maxerr', function () {
-            var rule = new ConstRule([{
-                msg: 'this is a test',
-                index: 4
-            }, {
-                msg: 'this is a test',
-                index: 2
-            }]), output;
+        it('should not truncate output if maxerr is -1', function (cb) {
+            linter.rules.addRule(rule);
+            linter.lint('f\nfff', { maxerr: -1 })
+                .then(function (output) {
+                    expect(output).to.have.length(2);
+                }).then(cb, cb);
+        });
 
-            linter.addRule(rule);
-            output = linter.lint('f\nfff', { maxerr: 1 });
-
-            expect(output.length).to.be.eql(1);
+        it('should not return more than the maxerr', function (cb) {
+            linter.rules.addRule(rule);
+            linter.lint('f\nfff', { maxerr: 1 })
+                .then(function (output) {
+                    expect(output).to.have.length(1);
+                }).then(cb, cb);
         });
     });
 
