@@ -39,6 +39,10 @@
         "desc": "If set, the doctype element must specify html5.",
         "default": true
     },
+    "head-content-model": {
+        "desc": "If set, the content-model of the HEAD element will be enforced: only BASE, LINK, META, NOSCRIPT, SCRIPT, STYLE, TEMPLATE, and TITLE tags are legal children.",
+        "default": false
+    },
     "href-style": {
         "desc": "* \"absolute\": All `href` tags must use absolute URLs. * \"relative\": All `href` tags must use relative URLs. * `false`: No restriction.",
         "default": false
