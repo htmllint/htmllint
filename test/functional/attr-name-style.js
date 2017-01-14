@@ -24,5 +24,10 @@ module.exports = [
         input: '<div abc="" fowj-awo3-fqowj=""></div>',
         opts: { 'attr-name-style': 'dash' },
         output: 0
+    }, {
+        desc: 'should accept a custom RegExp',
+        input: '<div deadbeef1337="" fail="" fails=""></div>',
+        opts: { 'attr-name-style': /^[0-9a-f]+$/ },
+        output: 2
     }
 ];
