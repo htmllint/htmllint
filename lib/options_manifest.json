@@ -80,7 +80,7 @@
         "default": true
     },
     "tag-limit-top-level": {
-        "desc": "Only <HEAD> and <BODY> elements may be direct children of <HTML>",
+        "desc": "If set, only <head> and <body> elements may be direct children of the <html> tag",
         "default": false
     },
     "line-end-style": {
