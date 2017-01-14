@@ -150,6 +150,11 @@ describe('inline-configuration', function () {
         expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
     });
 
+    it('should throw on nonexistent rule name', function () {
+        original.splice(4, 0, '<!-- htmllint not-rule="false" -->');
+        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+    });
+
     it('should throw on invalid rule name', function () {
         original.splice(3, 0, '<!-- htmllint pre#set="none" -->');
         expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);

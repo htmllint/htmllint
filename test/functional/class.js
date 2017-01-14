@@ -31,6 +31,11 @@ module.exports = [
         opts: {'class-style': 'bem'},
         output: 0
     }, {
+        desc: 'should accept a custom format RegExp',
+        input: '<div class="pAsS-one"></div><div class="fail"></div><div class="pAsS-two">',
+        opts: {'class-style': /^([a-z][A-Z])+(-[a-z]*)*$/},
+        output: 1
+    }, {
         desc: 'should ignore classes matching ignore regex',
         input: '<div class="pls {{no0 oO&}}"></div>',
         opts: {'class-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},

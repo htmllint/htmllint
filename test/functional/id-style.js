@@ -25,6 +25,11 @@ module.exports = [
         opts: {'id-class-style': 'bem'},
         output: 0
     }, {
+        desc: 'should accept a custom format RegExp',
+        input: '<div id="-___"></div><div id="fail"></div><div class="_--_-">',
+        opts: {'id-class-style': /^[-_]+$/},
+        output: 1
+    }, {
         desc: 'should ignore ids matching ignore regex',
         input: '<div id="doge{{l**i(tec/oin}}coin"></div>',
         opts: {'id-class-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},

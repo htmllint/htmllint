@@ -26,5 +26,15 @@ module.exports = [
         ].join(''),
         opts: { 'focusable-tabindex-style': true },
         output: 2
+    }, {
+        desc: 'should fail inputs with both positive and negative tabindexes',
+        input: [
+            '<input tabindex="2"></input>',
+            '<input tabindex="-1"></input>',
+            '<input></input>',
+            '<input tabindex="-3"></input>'
+        ].join(''),
+        opts: { 'focusable-tabindex-style': true },
+        output: 3
     }
 ];
