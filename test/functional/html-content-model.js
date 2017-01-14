@@ -24,6 +24,11 @@ module.exports = [
         input: '<html><head></head><div></div><body></body></html>',
         opts: { 'html-content-model': true },
         output: 1
+    }, {
+        desc: 'should fail for each illegal element',
+        input: '<html><div></div><head></head><div></div><body></body></html>',
+        opts: { 'html-content-model': true },
+        output: 2
    }, {
         desc: 'html-head-body should pass',
         input: '<html><head></head><body><div></div></body></html>',
