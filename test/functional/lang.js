@@ -25,6 +25,11 @@ module.exports = [
         opts: { 'lang-style': true },
         output: 0
     }, {
+        desc: 'should allow empty lang tag',
+        input: '<!DOCTYPE html>\n<html lang=""></html>',
+        opts: { 'lang-style': true },
+        output: 0
+    }, {
         desc: 'should fail on wrong-case lang if lang-style is "case"',
         input: '<!DOCTYPE html>\n<html lang="en-us"></html>',
         opts: { 'lang-style': 'case' },
