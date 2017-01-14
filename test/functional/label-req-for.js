@@ -17,6 +17,27 @@ module.exports = [
         opts: { 'label-req-for': 'strict' },
         output: 0
     }, {
+        desc: 'should pass with multiple valid labels',
+        input: [
+            '<label for="thing-1">Thing 1</label>',
+            '<input type="text" id="thing-1"/>',
+            '<label for="thing-2">Thing 2</label>',
+            '<input type="text" id="thing-2"/>'
+        ].join(''),
+        opts: { 'label-req-for': 'strict' },
+        output: 0
+    }, {
+        desc: 'should pass even with out-of-order and duplicated elements',
+        input: [
+            '<label for="thing">The Thing</label>',
+            '<input type="text" id="thing"/>',
+            '<label for="thing">The Thing</label>',
+            '<input type="text" id="thing"/>',
+            '<label for="thing">The Thing</label>'
+        ].join(''),
+        opts: { 'label-req-for': 'strict' },
+        output: 0
+    }, {
         desc: 'should fail label with only child in strict mode',
         input: [
             '<label>',
