@@ -4,6 +4,8 @@ Release History
 ### v.Next
 * fix errors when optional closing tags are omitted
 * improve handling of some kinds of malformed input
+* add `attr-order` rule
+* add `tag-limit-top-level` rule
 
 ### v0.5.0
 * add `class-no-dup-split-separator` option
