@@ -19,20 +19,8 @@ var testFiles = fs.readdirSync(__dirname)
         };
     });
 
-function createLinter(rules) {
-    rules = rules.concat(['dom', 'line', 'attr', 'tag']);
-
-    var ruleMap = rules.reduce(function (map, rule) {
-        if (typeof rule === 'string') {
-            rule = htmllint.rules[rule];
-        }
-
-        map[rule.name] = rule;
-
-        return map;
-    }, {});
-
-    return new htmllint.Linter(ruleMap);
+function createLinter(names) {
+    return new htmllint.Linter(htmllint.rules, htmllint.options);
 }
 
 function doTest(funcTest, testFile) {

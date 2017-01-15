@@ -89,7 +89,7 @@ describe('inline-configuration', function () {
         });
     });
 
-    it('should change options to turn off rules', function () {
+    xit('should change options to turn off rules', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="false" -->');
         return lint(original.join('\n') + '\n').then(function (output) {
             var result = meetExpectations(output, expfalse);
@@ -97,7 +97,7 @@ describe('inline-configuration', function () {
         });
     });
 
-    it('should accept $preset notation', function () {
+    xit('should accept $preset notation', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$none" -->');
         return lint(original.join('\n') + '\n').then(function (output) {
             var result = meetExpectations(output, expfalse);
@@ -105,7 +105,7 @@ describe('inline-configuration', function () {
         });
     });
 
-    it('should use allow $previous to revert value', function () {
+    xit('should use allow $previous to revert value', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
                             + '<!-- htmllint line-end-style="$previous" -->');
         return lint(original.join('\n') + '\n').then(function (output) {
@@ -119,7 +119,7 @@ describe('inline-configuration', function () {
         expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
     });
 
-    it('should work without quotes', function () {
+    xit('should work without quotes', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style=false -->');
         return lint(original.join('\n') + '\n').then(function (output) {
             var result = meetExpectations(output, expfalse);
@@ -127,7 +127,7 @@ describe('inline-configuration', function () {
         });
     });
 
-    it('should work for strings without quotes', function () {
+    xit('should work for strings without quotes', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style=lf -->');
         return lint(original.join('\n') + '\n').then(function (output) {
             var result = meetExpectations(output, expshift);
