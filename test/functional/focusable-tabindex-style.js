@@ -36,5 +36,15 @@ module.exports = [
         ].join(''),
         opts: { 'focusable-tabindex-style': true },
         output: 3
+    }, {
+        desc: 'should ignore disabled inputs',
+        input: [
+            '<input disabled></input>',
+            '<input disabled></input>',
+            '<input tabindex="2"></input>',
+            '<input tabindex="3"></input>'
+        ].join(''),
+        opts: { 'focusable-tabindex-style': true },
+        output: 0
     }
 ];

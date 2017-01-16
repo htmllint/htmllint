@@ -101,6 +101,19 @@ module.exports = [
         opts: { 'indent-width': false },
         output: 0
     }, {
+        desc: 'indent-width should not fail with all-whitespace lines',
+        input: [
+            '<body>',
+            '        <p>okay</p>',
+            '',
+            '  \t',
+            '        ',
+            '</body>',
+            '    '
+        ].join('\n'),
+        opts: { 'indent-width': 4 },
+        output: 1
+    }, {
         desc: 'indent-width should work with strange indent widths',
         input: [
             '<body>',

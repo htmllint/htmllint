@@ -24,6 +24,12 @@ module.exports = [
         input: '<html><br/></html>',
         opts: { 'tag-name-match': true },
         output: 0
+    },
+    {
+        desc: 'should pass when set to false',
+        input: '<html><div></html>',
+        opts: { 'tag-close': false, 'tag-name-match': true },
+        output: 0
     }, {
         desc: 'should pass tag-close for properly closed tags',
         input: '<html><div></div></html>',

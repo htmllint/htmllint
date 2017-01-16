@@ -15,6 +15,11 @@ module.exports = [
         opts: { 'attr-name-style': 'dash', 'attr-name-ignore-regex': 'xlink:href' },
         output: 0
     }, {
+        desc: 'should pass when set to false with ignore attribute',
+        input: '<div abc="" xlink:href=""></div>',
+        opts: { 'attr-name-style': false, 'attr-name-ignore-regex': 'notfound' },
+        output: 0
+    }, {
         desc: 'should fail incorrectly styled attribute names',
         input: '<div foWj0wo3=""></div>',
         opts: { 'attr-name-style': 'lowercase' },

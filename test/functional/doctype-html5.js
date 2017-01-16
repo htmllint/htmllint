@@ -11,7 +11,7 @@ module.exports = [
         output: 1
     }, {
         desc: 'should pass when given a non-obsolete non-legacy doctype',
-        input: '<!DOCTYPE html>',
+        input: '<!DOCTYPE html><html></html>',
         opts: { 'doctype-html5': true },
         output: 0
     }, {
