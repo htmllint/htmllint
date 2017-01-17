@@ -20,7 +20,7 @@ var testFiles = fs.readdirSync(__dirname)
     });
 
 function createLinter(names) {
-    return new htmllint.Linter(htmllint.rules, htmllint.options);
+    return new htmllint.Linter(htmllint.rules);
 }
 
 function doTest(funcTest, testFile) {
