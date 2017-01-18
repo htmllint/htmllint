@@ -2,13 +2,15 @@ describe('Config', function () {
     var Config = require('../../lib/config');
     var config = null,
         rule = null,
+        baseRule = null,
         option = null;
 
     beforeEach(function () {
-        config = new Config([{name:'html'}], []);
+        config = new Config();
+        baseRule = { name: 'base' };
         rule = {
             name: 'therule',
-            on: ['html']
+            on: ['base']
         };
         option = {
             name: 'theoption',
@@ -22,10 +24,34 @@ describe('Config', function () {
     });
 
     describe('getRule', function () {
-        it('should return undefined for nonexistant rule', function () {
-            var rule = config.getRule('nonexistant');
+        it('should return undefined for nonexistent rule', function () {
+            var rule = config.getRule('nonexistent');
 
             expect(rule).to.be.a('undefined');
+        });
+    });
+
+    describe('initialize', function () {
+        it('should initialize rules', function () {
+            config = new Config([baseRule, rule]);
+
+            expect(config.getRule(rule.name)).to.be.eql(rule);
+            expect(config.getRule(baseRule.name)).to.be.eql(baseRule);
+        });
+
+        it('should initialize both rules and options', function () {
+            config = new Config([baseRule, rule], [option]);
+
+            expect(config.getRule(rule.name)).to.be.eql(rule);
+            expect(config.getRule(baseRule.name)).to.be.eql(baseRule);
+            expect(config.options[option.name]).to.be.eql(option);
+        });
+
+        it('should get options from a rule', function () {
+            rule.options = [option];
+            config = new Config([baseRule, rule]);
+
+            expect(config.options[option.name]).to.be.eql(option);
         });
     });
 
@@ -48,6 +74,13 @@ describe('Config', function () {
             expect(addedRule.subscribers).to.be.eql([]);
         });
 
+        it('should not initialize the same rule twice', function () {
+            config.addRule(rule);
+            rule.subscribers = ['test'];
+            config.addRule(rule);
+            expect(rule.subscribers).to.be.eql(['test']);
+        });
+
         it('should remove a previous rule', function () {
             var oldRule = {};
             oldRule.name = rule.name;
@@ -58,6 +91,20 @@ describe('Config', function () {
             var addedRule = config.getRule(rule.name);
 
             expect(addedRule).to.be.equal(rule);
+        });
+
+        it('should remove a previous rule\'s subcriptions', function () {
+            config.addRule(baseRule);
+            config.addRule(rule);
+            config.addOption(option);
+            config.setOption(option.name, true);
+
+            var newRule = { name: rule.name, on: [] };
+            config.addRule(newRule);
+
+            console.log(newRule.subscribers);
+            expect(newRule.subscribers).to.be.eql([option]);
+            expect(baseRule.subscribers).to.be.eql([]);
         });
     });
 
@@ -72,7 +119,7 @@ describe('Config', function () {
         });
 
         it('should not throw when removing a nonregistered rule', function () {
-            config.removeRule('nonexistant');
+            config.removeRule('nonexistent');
         });
     });
 
@@ -93,21 +140,72 @@ describe('Config', function () {
             expect(addedOption.name).to.be.eql('test');
             expect(addedOption.rules).to.be.eql(['test']);
         });
+
+        it('should not initialize the same option twice', function () {
+            config.addOption(option);
+            option.active = true;
+            config.addOption(option);
+            expect(option.active).to.be.eql(true);
+        });
+
+        it('should maintain active and update subscriptions', function () {
+            config.addRule(baseRule);
+            config.addRule(rule);
+            var option2 = {
+                name: option.name,
+                rules: [baseRule.name],
+                process: option.process
+            };
+            config.addOption(option2);
+            config.setOption(option.name, true);
+
+            config.addOption(option);
+            expect(option.active).to.be.eql(true);
+            expect(baseRule.subscribers).to.be.eql([rule]);
+            expect(rule.subscribers).to.be.eql([option]);
+
+            config.addOption(option2);
+            expect(option2.active).to.be.eql(true);
+            expect(baseRule.subscribers).to.be.eql([option2]);
+            expect(rule.subscribers).to.be.eql([]);
+        });
     });
 
     describe('setOption', function () {
         it('should subscribe and unsubscribe the rule', function () {
+            config.addRule(baseRule);
             config.addRule(rule);
             config.addOption(option);
-            var html = config.getRule('html');
 
             config.setOption(option.name, true);
             expect(rule.subscribers).to.be.eql([option]);
-            expect(html.subscribers).to.be.eql([rule]);
+            expect(baseRule.subscribers).to.be.eql([rule]);
 
             config.setOption(option.name, false);
             expect(rule.subscribers).to.be.eql([]);
-            expect(html.subscribers).to.be.eql([]);
+            expect(baseRule.subscribers).to.be.eql([]);
+        });
+    });
+
+    describe('removeOption', function () {
+        it('should remove the option', function () {
+            config.addOption(option);
+            config.removeOption(option.name);
+            expect(config.options[option.name]).to.be.undefined;
+        });
+
+        it('should remove the option\'s subcriptions', function () {
+            config.addRule(baseRule);
+            config.addRule(rule);
+            config.addOption(option);
+            config.setOption(option.name, true);
+            config.removeOption(option.name);
+            expect(rule.subscribers).to.be.eql([]);
+            expect(baseRule.subscribers).to.be.eql([]);
+        });
+
+        it('should not fail on nonexistent option', function () {
+            config.removeOption('nonexistent');
         });
     });
 });
