@@ -184,6 +184,22 @@ describe('Config', function () {
             config.setOption(option.name, false);
             expect(rule.subscribers).to.be.eql([]);
             expect(baseRule.subscribers).to.be.eql([]);
+
+            var option2 = {
+                name: 'option2',
+                rules: option.rules,
+                process: option.process
+            }
+            config.addOption(option2);
+            config.setOption(option.name, true);
+            config.setOption(option2.name, true);
+            config.setOption(option.name, false);
+            expect(rule.subscribers).to.be.eql([option2]);
+            expect(baseRule.subscribers).to.be.eql([rule]);
+
+            config.setOption(option2.name, false);
+            expect(rule.subscribers).to.be.eql([]);
+            expect(baseRule.subscribers).to.be.eql([]);
         });
     });
 
