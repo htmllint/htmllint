@@ -1,5 +1,15 @@
 module.exports = [
     {
+        desc: 'should not run when disabled',
+        input: '<button name=unquoted></button>',
+        opts: { 'attr-quote-style': false },
+        output: 0
+    }, {
+        desc: 'should fail on unknown style',
+        input: '',
+        opts: { 'attr-quote-style': 'unknown' },
+        output: 1
+    }, {
         desc: 'should match unquoted attr',
         input: '<button name=unquoted></button>',
         opts: { 'attr-quote-style': 'quoted' },
@@ -14,11 +24,6 @@ module.exports = [
         input: '<button disabled="not"></button>',
         opts: { 'attr-quote-style': 'single' },
         output: 1
-    }, {
-        desc: 'should not run when disabled',
-        input: '<button name=unquoted></button>',
-        opts: { 'attr-quote-style': false },
-        output: 0
     }, {
         desc: 'should pass quoted attr',
         input: '<button t="0" t=\'k\'></button>',

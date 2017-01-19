@@ -9,6 +9,16 @@ var input = [
 
 module.exports = [
     {
+        desc: 'should not match anything when set to false',
+        input: input,
+        opts: { 'line-end-style': false },
+        output: 0
+    }, {
+        desc: 'should fail on unknown style',
+        input: '',
+        opts: { 'line-end-style': 'inadmissible' },
+        output: 1
+    }, {
         desc: 'should match CR and CRLF when set to LF',
         input: input,
         opts: { 'line-end-style': 'lf' },
@@ -27,11 +37,6 @@ module.exports = [
         desc: 'should not match empty lines',
         input: ['<div>','','</div>'].join('\n') + '\n',
         opts: { 'line-end-style': 'lf' },
-        output: 0
-    }, {
-        desc: 'should not match anything when set to false',
-        input: input,
-        opts: { 'line-end-style': false },
         output: 0
     }
 ];
