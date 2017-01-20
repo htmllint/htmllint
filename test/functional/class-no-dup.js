@@ -19,6 +19,11 @@ module.exports = [
         input: '<body><div><p class="hey hey hi ho ho">Text</p></div></body>',
         opts: { 'class-no-dup': true },
         output: 2
+    }, {
+        desc: 'should work with leading and trailing whitespace',
+        input: '<body><div><p class=" hey hi\n">Text</p></div></body>',
+        opts: { 'class-no-dup': true },
+        output: 0
     },
 
     // check ignore splitting
