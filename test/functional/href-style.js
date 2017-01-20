@@ -27,7 +27,7 @@ module.exports = [
     }, {
         desc: 'should not match on <a> without an href',
         input: '<a></a>',
-        opts: { 'href-style': true },
+        opts: { 'href-style': 'absolute' },
         output: 0
     }
 ];
