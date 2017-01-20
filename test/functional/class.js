@@ -46,6 +46,11 @@ module.exports = [
         opts: {'class-style': 'lowercase', 'id-class-ignore-regex': '{{.*?}}'},
         output: 1
     }, {
+        desc: 'should give an error if id-class-ignore-regex is empty',
+        input: '',
+        opts: { 'class-style': 'lowercase', 'id-class-ignore-regex': '' },
+        output: 1
+    }, {
         desc: 'should use id-class-style option if class-style is false',
         input: '<div class="fojf*ovo"></div>',
         opts: { 'class-style': false, 'id-class-style': 'lowercase' },
