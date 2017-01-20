@@ -1,13 +1,17 @@
 Release History
 ---------------
 
-### v.Next
+### v0.6.0
+
 * fix errors when optional closing tags are omitted
 * improve handling of some kinds of malformed input
 * add `attr-order` rule
-* add `tag-limit-top-level` rule
+* add `html-valid-content-model` and `head-valid-content-model` rules
+* fix some errors in default preset (causing `spec-char-escape` and
+`attr-no-unsafe-char` to be on by default as intended).
 
 ### v0.5.0
+
 * add `class-no-dup-split-separator` option
 * change `tag-self-close` options from boolean to "always" and "never"
 * fix bugs in `tag-self-close` and `tag-name-match`
