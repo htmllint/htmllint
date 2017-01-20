@@ -15,6 +15,16 @@ module.exports = [
         opts: { 'attr-bans': false },
         output: 0
     }, {
+        desc: 'should fail if not given a list',
+        input: '',
+        opts: { 'attr-bans': 'style' },
+        output: 1
+    }, {
+        desc: 'should fail if not given a list of strings',
+        input: '',
+        opts: { 'attr-bans': ['style', true] },
+        output: 1
+    }, {
         desc: 'should match banned if specified',
         input: '<body banned></body>',
         opts: { 'attr-bans': ['banned'] },

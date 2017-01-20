@@ -1,5 +1,20 @@
 module.exports = [
   {
+    desc: 'should pass when set to false',
+    input: '-----------------------------------------------------------------------------------',
+    opts: { 'line-max-len': false },
+    output: 0
+  }, {
+    desc: 'should fail when given a non-number',
+    input: '',
+    opts: { 'line-max-len': 'its-a-string' },
+    output: 1
+  }, {
+    desc: 'should fail when given a negative number',
+    input: '1234',
+    opts: { 'line-max-len': -5 },
+    output: 1
+  }, {
     desc: 'should pass when line length not exceeds the maximum value',
     input: '1234',
     opts: { 'line-max-len': 5 },

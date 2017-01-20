@@ -5,6 +5,11 @@ module.exports = [
         opts: { 'id-class-style': false },
         output: 0
     }, {
+        desc: 'should fail when given an unknown option value',
+        input: '',
+        opts: { 'id-class-style': 'inconceivable' },
+        output: 1
+    }, {
         desc: 'should pass correctly styled id',
         input: '<div id="abc"></div>',
         opts: { 'id-class-style': 'lowercase' },

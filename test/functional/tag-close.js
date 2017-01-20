@@ -62,6 +62,11 @@ module.exports = [
         opts: { 'tag-self-close': false },
         output: 0
     }, {
+        desc: 'should fail when given an unknown option value',
+        input: '',
+        opts: { 'tag-self-close': 'inscrutable' },
+        output: 1
+    }, {
         desc: 'tag-name-match or tag-close should not match non-self-closing tags',
         input: '<img>',
         opts: { 'tag-self-close': false, 'tag-name-match': true, 'tag-close': true },

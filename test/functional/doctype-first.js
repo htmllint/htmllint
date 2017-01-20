@@ -5,6 +5,11 @@ module.exports = [
         opts: { 'doctype-first': false },
         output: 0
     }, {
+        desc: 'should pass when set to any falsy value',
+        input: '<!DOCTYPE><div><p>Hello</p><p>World</p></div>',
+        opts: { 'doctype-first': 0 },
+        output: 0
+    }, {
         desc: 'should pass when !DOCTYPE is first',
         input: '<!DOCTYPE><div><p>Hello</p><p>World</p></div>',
         opts: { 'doctype-first': true },
