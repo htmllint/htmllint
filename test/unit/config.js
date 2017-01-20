@@ -102,7 +102,6 @@ describe('Config', function () {
             var newRule = { name: rule.name, on: [] };
             config.addRule(newRule);
 
-            console.log(newRule.subscribers);
             expect(newRule.subscribers).to.be.eql([option]);
             expect(baseRule.subscribers).to.be.eql([]);
         });

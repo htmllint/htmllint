@@ -55,6 +55,11 @@ module.exports = [
         input: '<div class="fojf*ovo"></div>',
         opts: { 'class-style': false, 'id-class-style': 'lowercase' },
         output: 1
+    }, {
+        desc: 'should not use id-class-style option if class-style is "none"',
+        input: '<div class="fojf*ovo"></div>',
+        opts: { 'class-style': 'none', 'id-class-style': 'lowercase' },
+        output: 0
     },
 
     // class-no-dup
