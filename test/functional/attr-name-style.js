@@ -34,5 +34,15 @@ module.exports = [
         input: '<div deadbeef1337="" fail="" fails=""></div>',
         opts: { 'attr-name-style': /^[0-9a-f]+$/ },
         output: 2
+    }, {
+        desc: 'should accept a string giving a RegExp',
+        input: '<div deadbeef1337="" fail="" fails=""></div>',
+        opts: { 'attr-name-style': '/^[0-9a-f]+$/g' },
+        output: 2
+    }, {
+        desc: 'should fail when given a non-string value',
+        input: '<div></div>',
+        opts: { 'attr-name-style': ['camel'] },
+        output: 1
     }
 ];

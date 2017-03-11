@@ -26,6 +26,7 @@ var preamble = [
 '* "camel": camelCase (or CamelCase).',
 '* "bem": The BEM (block, element, modifier) syntax.',
 '* An arbitrary Javascript RegExp object.',
+'* A string matching Javascript\'s RegExp format (like \'/^[a-z]+$/g\').',
 '',
 'Each of the named formats allows digits to be used in addition to letters',
 'after the first letter in each word. See `lib/knife/get_format_test.js`',
