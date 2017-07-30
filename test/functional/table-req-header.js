@@ -17,6 +17,12 @@ module.exports = [
         opts: { 'table-req-header': true },
         output: 0
     },
+	{
+        desc: 'should pass when th is not first cell in tr',
+        input: '<table><tr><td>Shh</td><th>Doges</th></tr></table>',
+        opts: { 'table-req-header': true },
+        output: 0
+    },
     {
         desc: 'should fail when th not encapsulated in a tr because that\'s technically not valid',
         input: '<table><th>Dog</th></table>',
@@ -30,14 +36,26 @@ module.exports = [
         output: 1
     },
     {
-        desc: 'should pass when table has captions and stuff',
+        desc: 'should pass when table has caption and th',
         input: '<table><caption>DOGS</caption><tr><th>Hey</th></tr></table>',
         opts: { 'table-req-header': true },
         output: 0
     },
     {
-        desc: 'should pass when table has captions and thead',
+        desc: 'should pass when table has caption and thead',
         input: '<table><caption>DOGS</caption><thead>Hey</thead></table>',
+        opts: { 'table-req-header': true },
+        output: 0
+    },
+	{
+        desc: 'should pass when table has caption and text before thead',
+        input: '<table>\n\t<caption>DOGS</caption>\n  <thead></thead>\n</table>',
+        opts: { 'table-req-header': true },
+        output: 0
+    },
+    {
+        desc: 'should pass when table has caption and text before th',
+        input: '<table>\n\t<caption>DOGS</caption>\n  <tr>\n\t  <td>Shh</td>\n  \t<th>Doges</th>\n  </tr>\n</table>',
         opts: { 'table-req-header': true },
         output: 0
     }
