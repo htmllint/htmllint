@@ -6,6 +6,18 @@ module.exports = [
         output: 0
     },
     {
+        desc: 'should fail on non-list value',
+        input: '<img src="test.gif" class="test" width="300" height="200"></img>',
+        opts: { 'attr-order': 'class' },
+        output: 1
+    },
+    {
+        desc: 'should fail on non-regex value elements',
+        input: '<img src="test.gif" class="test" width="300" height="200"></img>',
+        opts: { 'attr-order': ['class','src',3] },
+        output: 1
+    },
+    {
         desc: 'should pass when attribute order is consistent with option',
         input: '<img class="test" src="test.gif" height="200" width="300"></img>',
         opts: { 'attr-order': ['class','src','height','width'] },
