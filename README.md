@@ -6,7 +6,7 @@
 
 > An unofficial html5 linter and validator.
 
-htmllint uses a parser to get the DOM for your html. It then runs uses the provided rules (and default rules) to lint both the DOM and then individual lines. [Take a look at the supported options](https://github.com/htmllint/htmllint/wiki/Options).
+htmllint uses a parser to get the DOM for your html. It then uses the provided rules (and default rules) to lint both the DOM and then individual lines. [Take a look at the supported options](https://github.com/htmllint/htmllint/wiki/Options).
 
 Using htmllint
 --------------
