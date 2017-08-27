@@ -171,6 +171,19 @@ describe('inline-configuration', function () {
         return expectOutput(original, expfalse);
     });
 
+    it('should revert last setting preset=$previous', function () {
+        original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
+                            + '<!-- htmllint id-no-dup="false" id-class-no-ad="false" -->'
+                            + '<!-- htmllint preset="$previous" -->');
+        return expectOutput(original, expfalse);
+    });
+
+    it('should revert an entire preset with preset=$previous', function () {
+        original.splice(3, 0, '<!-- htmllint preset="none" -->'
+                            + '<!-- htmllint preset="$previous" -->');
+        return expectOutput(original, expshift);
+    });
+
     it('should throw on invalid preset option', function () {
         original.splice(3, 0, '<!-- htmllint preset="invalid" -->');
         return expectError(original);
