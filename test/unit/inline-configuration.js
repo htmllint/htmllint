@@ -154,10 +154,10 @@ describe('inline-configuration', function () {
         return expectOutput(original, [ { code: 'E015', line: 3 } ]);
     });
 
-//  it('should take in presets', function () {
-//      original.splice(1, 0, '<!-- htmllint preset="none" -->');
-//      return expectOutput(original, []);
-//  });
+    it('should take in presets', function () {
+        original.splice(1, 0, '<!-- htmllint preset="none" -->');
+        return expectOutput(original, []);
+    });
 
 //  it('should restore values with $previous after using presets', function () {
 //      original.splice(3, 0, '<!-- htmllint preset="none" -->'
