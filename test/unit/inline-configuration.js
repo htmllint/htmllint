@@ -103,11 +103,17 @@ describe('inline-configuration', function () {
         return expectOutput(original, expfalse);
     });
 
-//  it('should use allow $previous to revert value', function () {
-//      original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
-//                          + '<!-- htmllint line-end-style="$previous" -->');
-//      return expectOutput(original, expshift);
-//  });
+    it('should work when used multiple times in a line', function () {
+        original.splice(3, 0, '<!-- htmllint line-end-style="cr" -->'
+                            + '<!-- htmllint line-end-style="false" -->');
+        return expectOutput(original, expfalse);
+    });
+
+    it('should use allow $previous to revert value', function () {
+        original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
+                            + '<!-- htmllint line-end-style="$previous" -->');
+        return expectOutput(original, expshift);
+    });
 
     it('should throw on invalid $preset', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$invalid" -->');
@@ -159,11 +165,11 @@ describe('inline-configuration', function () {
         return expectOutput(original, []);
     });
 
-//  it('should restore values with $previous after using presets', function () {
-//      original.splice(3, 0, '<!-- htmllint preset="none" -->'
-//                          + '<!-- htmllint line-end-style="$previous" -->');
-//      return expectOutput(original, expfalse);
-//  });
+    it('should restore values with $previous after using presets', function () {
+        original.splice(3, 0, '<!-- htmllint preset="none" -->'
+                            + '<!-- htmllint line-end-style="$previous" -->');
+        return expectOutput(original, expfalse);
+    });
 
     it('should throw on invalid preset option', function () {
         original.splice(3, 0, '<!-- htmllint preset="invalid" -->');
