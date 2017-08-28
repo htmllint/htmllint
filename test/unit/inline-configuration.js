@@ -135,20 +135,20 @@ describe('inline-configuration', function () {
         return expectError(original);
     });
 
-//  it('should throw an error on bad options', function () {
-//      original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup="false" id-no-no-ad="false" -->');
-//      return expectError(original);
-//  });
+    it('should throw an error on bad options', function () {
+        original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup="false" id-no-no-ad="false" -->');
+        return expectError(original);
+    });
 
     it('should throw on invalid option value', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="fal#se" -->');
         return expectError(original);
     });
 
-//  it('should throw on nonexistent rule name', function () {
-//      original.splice(4, 0, '<!-- htmllint not-rule="false" -->');
-//      return expectError(original);
-//  });
+    it('should throw on nonexistent rule name', function () {
+        original.splice(4, 0, '<!-- htmllint not-rule="false" -->');
+        return expectError(original);
+    });
 
     it('should throw on invalid rule name', function () {
         original.splice(3, 0, '<!-- htmllint pre#set="none" -->');
