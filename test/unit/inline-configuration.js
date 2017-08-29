@@ -38,14 +38,19 @@ function meetExpectations(output, expectation) {
     return true;
 }
 
-function expectOutput(html, expected) {
+function expectOutput(html, expected, trim) {
     return lint(html.join('\n') + '\n').then(function (output) {
+        if (trim) output = output.slice(0, expected.length);
         expect(meetExpectations(output, expected)).to.be.true;
     });
 }
 
 function expectError(html) {
     return expect(lint(html.join('\n') + '\n')).to.be.rejectedWith(Error);
+}
+
+function expectConfigIssue(html, code) {
+    return expectOutput(html, [{code:code}], true);
 }
 
 describe('inline-configuration', function () {
@@ -115,9 +120,9 @@ describe('inline-configuration', function () {
         return expectOutput(original, expshift);
     });
 
-    it('should throw on invalid $preset', function () {
+    it('should output an issue on invalid $preset', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$invalid" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E051');
     });
 
     it('should work without quotes', function () {
@@ -130,9 +135,9 @@ describe('inline-configuration', function () {
         return expectOutput(original, expshift);
     });
 
-    it('should throw an error on bad config formatting', function () {
+    it('should output an issue on bad config formatting', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup-"false" id-class-no-ad="false" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E050');
     });
 
     it('should throw an error on bad options', function () {
@@ -140,9 +145,9 @@ describe('inline-configuration', function () {
         return expectError(original);
     });
 
-    it('should throw on invalid option value', function () {
+    it('should output an issue on invalid option value', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="fal#se" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E053');
     });
 
     it('should throw on nonexistent rule name', function () {
@@ -150,9 +155,9 @@ describe('inline-configuration', function () {
         return expectError(original);
     });
 
-    it('should throw on invalid rule name', function () {
+    it('should output an issue on invalid rule name', function () {
         original.splice(3, 0, '<!-- htmllint pre#set="none" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E051');
     });
 
     it('should change multiple rules', function () {
@@ -184,8 +189,8 @@ describe('inline-configuration', function () {
         return expectOutput(original, expshift);
     });
 
-    it('should throw on invalid preset option', function () {
+    it('should output an issue on invalid preset option', function () {
         original.splice(3, 0, '<!-- htmllint preset="invalid" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E052');
     });
 });
