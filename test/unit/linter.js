@@ -11,7 +11,8 @@ describe('linter', function () {
     beforeEach(function () {
         linter = new Linter([
             {name: 'dom',  lint: function () { return []; }},
-            {name: 'line', lint: function () { return []; }}
+            {name: 'line', lint: function () { return []; }},
+            require('../../lib/rules/free-options.js')
         ]);
     });
 
@@ -48,6 +49,13 @@ describe('linter', function () {
         it('should not return more than the maxerr', function (cb) {
             linter.rules.addRule(rule);
             linter.lint('f\nfff', { maxerr: 1 })
+                .then(function (output) {
+                    expect(output).to.have.length(1);
+                }).then(cb, cb);
+        });
+
+        it('should output an issue for non-integer maxerr', function (cb) {
+            linter.lint('', { maxerr: 'five' })
                 .then(function (output) {
                     expect(output).to.have.length(1);
                 }).then(cb, cb);
