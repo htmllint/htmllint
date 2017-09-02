@@ -3,22 +3,22 @@
 module.exports = [
     {
         desc: 'should not ignore text if set to false',
-        input: "\r\r\r\r[[\r\n\t fjq\r\n\r]]\r\r",
+        input: '\r\r\r\r[[\r\n\t fjq\r\n\r]]\r\r',
         opts: { 'raw-ignore-regex': false },
         output: 9
     }, {
         desc: 'should remove matching text',
-        input: "\r\r\r\r[[\r\n\t fjq\r\n\r]]\r\r\n",
+        input: '\r\r\r\r[[\r\n\t fjq\r\n\r]]\r\r\n',
         opts: { 'raw-ignore-regex': /\r/ },
         output: 0
     }, {
         desc: 'should work across line breaks',
-        input: "\r\r\r\r[[\r\n\t fjq\r\n\r]]\r\r",
+        input: '\r\r\r\r[[\r\n\t fjq\r\n\r]]\r\r',
         opts: { 'raw-ignore-regex': /\[\[[^]*?\]\]/ },
         output: 6
     }, {
         desc: 'should remove multiple matches',
-        input: "\r{\r\r}\r[[\r\n\t fjq\r\n\r]]\r\r",
+        input: '\r{\r\r}\r[[\r\n\t fjq\r\n\r]]\r\r',
         opts: { 'raw-ignore-regex': /(\{[^]*?\}|\[\[[^]*?\]\])/ },
         output: 4
     }
