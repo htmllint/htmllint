@@ -45,10 +45,6 @@ function expectOutput(html, expected, trim) {
     });
 }
 
-function expectError(html) {
-    return expect(lint(html.join('\n') + '\n')).to.be.rejectedWith(Error);
-}
-
 function expectConfigIssue(html, code) {
     return expectOutput(html, [{code:code}], true);
 }
@@ -142,7 +138,7 @@ describe('inline-configuration', function () {
 
     it('should throw an error on bad options', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup="false" id-no-no-ad="false" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E054');
     });
 
     it('should output an issue on invalid option value', function () {
@@ -152,7 +148,7 @@ describe('inline-configuration', function () {
 
     it('should throw on nonexistent rule name', function () {
         original.splice(4, 0, '<!-- htmllint not-rule="false" -->');
-        return expectError(original);
+        return expectConfigIssue(original, 'E054');
     });
 
     it('should output an issue on invalid rule name', function () {
