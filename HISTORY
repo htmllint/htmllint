@@ -1,7 +1,7 @@
 Release History
 ---------------
 
-### v1.0.0
+### v0.7.0
 
 * add option "none" to disable `class-style` while leaving `id-style` enabled
 * require a truthy value for `href-style` to be either "absolute" or "relative"
