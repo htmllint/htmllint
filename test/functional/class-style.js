@@ -26,9 +26,14 @@ module.exports = [
         output: 0
     }, {
         desc: 'should accept classes that use the BEM format',
-        input: '<div class="pls-no"></div><div class="pls-no__yes"></div><div class="pls-no__yes--no"></div><div class="pls-no__yes-no--maybe"></div>',
+        input: '<div class="block"></div><div class="block__element"></div><div class="block--modifier"></div><div class="block__element--modifier"></div><div class="poll-block"></div><div class="poll-block__element"></div><div class="poll-block__poll-element"></div><div class="poll-block--modifier"></div><div class="poll-block--poll-modifier"></div><div class="poll-block__element--modifier"></div><div class="poll-block__poll-element--modifier"></div><div class="poll-block__element--poll-modifier"></div><div class="poll-block__poll-element--poll-modifier"></div><div class="base-poll-block"></div><div class="base-poll-block__base-poll-element"></div><div class="base-poll-block__element--base-poll-modifier"></div><div class="base-poll-block__base-poll-element--base-poll-modifier"></div>',
         opts: {'class-style': 'bem'},
         output: 0
+    }, {
+        desc: 'should not accept classes that aren\'t compatible the BEM format',
+        input: '<div class="block--modifier--modifier"></div><div class="block__element__element"></div>',
+        opts: {'class-style': 'bem'},
+        output: 2
     }, {
         desc: 'should accept a custom format RegExp',
         input: '<div class="pAsS-one"></div><div class="fail"></div><div class="pAsS-two">',

@@ -26,9 +26,14 @@ module.exports = [
         output: 0
     }, {
         desc: 'should accept ids that use the BEM format',
-        input: '<div id="pls-no"></div><div id="pls-no__yes"></div><div id="pls-no__yes--no"></div><div id="pls-no__yes-no--maybe"></div>',
+        input: '<div id="block"></div><div id="block__element"></div><div id="block--modifier"></div><div id="block__element--modifier"></div><div id="poll-block"></div><div id="poll-block__element"></div><div id="poll-block__poll-element"></div><div id="poll-block--modifier"></div><div id="poll-block--poll-modifier"></div><div id="poll-block__element--modifier"></div><div id="poll-block__poll-element--modifier"></div><div id="poll-block__element--poll-modifier"></div><div id="poll-block__poll-element--poll-modifier"></div><div id="base-poll-block"></div><div id="base-poll-block__base-poll-element"></div><div id="base-poll-block__element--base-poll-modifier"></div><div id="base-poll-block__base-poll-element--base-poll-modifier"></div>',
         opts: {'id-class-style': 'bem'},
         output: 0
+    }, {
+        desc: 'should not accept ids that aren\'t compatible the BEM format',
+        input: '<div id="block--modifier--modifier"></div><div id="block__element__element"></div>',
+        opts: {'id-class-style': 'bem'},
+        output: 2
     }, {
         desc: 'should accept a custom format RegExp',
         input: '<div id="-___"></div><div id="fail"></div><div class="_--_-">',
