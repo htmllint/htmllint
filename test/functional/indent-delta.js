@@ -34,9 +34,11 @@ module.exports = [
             '<body>',
             '\t  <p>hello</p>',
             '  <p>hello</p>',
+            '\t\t\t<p>hello</p>',
+            '    <p>hello</p>',
             '</body>'
         ].join('\n'),
         opts: { 'indent-delta':true, 'indent-width':2 },
-        output: 1
+        output: 3
     },
 ]
