@@ -17,7 +17,8 @@ paths.test = [].concat(paths.testUnit, paths.testFunc);
 gulp.task('jscs', function () {
     gulp.src(paths.src
              .concat(paths.test))
-        .pipe(jscs());
+        .pipe(jscs())
+        .pipe(jscs.reporter());
 });
 
 // lints javascript files with eslint
