@@ -1,6 +1,6 @@
 {
   "name": "htmllint",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "An unofficial html5 linter.",
   "repository": {
     "type": "git",
@@ -51,6 +51,6 @@
     "node": ">=4"
   },
   "contributors": [
-	"Yannick Van Avermaet <yvanavermaet+npm@gmail.com> (https://twitter.com/yvanavermaet)"
+    "Yannick Van Avermaet <yvanavermaet+npm@gmail.com> (https://twitter.com/yvanavermaet)"
   ]
 }
