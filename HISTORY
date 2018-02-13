@@ -1,6 +1,15 @@
 Release History
 ---------------
 
+### v0.7.1
+
+* fix catastrophic backtracking (a potential DoS issue) in the BEM style
+RegExp and make it more accurately represent the BEM specification
+* recognize void elements regardless of case
+* add `indent-delta` option to require indentation to change by only one
+indent width per line
+* add `line-no-trailing-whitespace` rule (disabled by default)
+
 ### v0.7.0
 
 * add option "none" to disable `class-style` while leaving `id-style` enabled
