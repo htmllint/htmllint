@@ -12,6 +12,10 @@ site
 # node
 node_modules
 npm-debug.log
+package-lock.json
 
 # phpstorm
 .idea
+
+# mac
+.DS_Store

@@ -87,6 +87,11 @@ module.exports = [
         opts: { 'tag-self-close': 'never' },
         output: 1
     }, {
+        desc: 'should detect void elements regardless of case',
+        input: '<ImG/>',
+        opts: { 'tag-self-close': 'never' },
+        output: 1
+    }, {
         desc: 'should not match self-closed tags when set to never',
         input: '<img>',
         opts: { 'tag-self-close': 'never' },

@@ -44,5 +44,10 @@ module.exports = [
         input: '<head></head><section><div><p>Hello</p><p>World</p></div></section>',
         opts: { 'doctype-first': 'smart' },
         output: 1
+    }, {
+        desc: 'should fail but not crash when first element is not a tag',
+        input: 'foobar',
+        opts: { 'doctype-first': true },
+        output: 1
     }
 ];

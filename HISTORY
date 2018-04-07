@@ -1,6 +1,38 @@
 Release History
 ---------------
 
+### v0.7.2
+
+* fix catastrophic backtracking (a potential DoS issue) in the BEM style
+RegExp and make it more accurately represent the BEM specification
+
+### v0.7.1
+
+* recognize void elements regardless of case
+* add `indent-delta` option to require indentation to change by only one
+indent width per line
+* add `line-no-trailing-whitespace` rule (disabled by default)
+
+### v0.7.0
+
+* add option "none" to disable `class-style` while leaving `id-style` enabled
+* require a truthy value for `href-style` to be either "absolute" or "relative"
+* ignore leading and trailing whitespace in classes for `class-no-dup`
+* ensure that the default preset has values for all options
+* miscellaneous corrections to error messages
+* allow options taking a RegExp to use a string specifying one instead
+* correct line and column numbers for attributes and in `spec-char-escape`
+and `doctype-first`
+* change default value for `attr-name-style` to "dash"
+* remove CR and LF from the list of characters banned by `attr-no-unsafe-char`
+* allow regular expression input in `attr-order`
+* add `text-ignore-regex` and `raw-ignore-regex` options
+* fix error handling in inline configuration, and use issues instead of
+throwing errors for invalid configuration
+* output issues for nonexistent options in initial configuration
+* allow `preset=$previous` to undo last inline configuration
+* add `attr-validate` option
+
 ### v0.6.0
 
 * fix errors when optional closing tags are omitted
@@ -8,7 +40,8 @@ Release History
 * add `attr-order` rule
 * add `html-valid-content-model` and `head-valid-content-model` rules
 * fix some errors in default preset (causing `spec-char-escape` and
-`attr-no-unsafe-char` to be on by default as intended).
+`attr-no-unsafe-char` to be on by default as intended)
+* add verification of option values, with errors for invalid values
 
 ### v0.5.0
 

@@ -38,6 +38,17 @@ function meetExpectations(output, expectation) {
     return true;
 }
 
+function expectOutput(html, expected, trim) {
+    return lint(html.join('\n') + '\n').then(function (output) {
+        if (trim) output = output.slice(0, expected.length);
+        expect(meetExpectations(output, expected)).to.be.true;
+    });
+}
+
+function expectConfigIssue(html, code) {
+    return expectOutput(html, [{code:code}], true);
+}
+
 describe('inline-configuration', function () {
     var original = null;
     var expdefault = [
@@ -75,122 +86,107 @@ describe('inline-configuration', function () {
     });
 
     it('should not do anything if no inline config comments exist', function () {
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expdefault);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expdefault);
     });
 
     it('should not do anything on an empty tag', function () {
         original.splice(3, 0, '<!-- htmllint -->');
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expshift);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expshift);
     });
 
     it('should change options to turn off rules', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="false" -->');
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expfalse);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expfalse);
     });
 
     it('should accept $preset notation', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$none" -->');
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expfalse);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expfalse);
+    });
+
+    it('should work when used multiple times in a line', function () {
+        original.splice(3, 0, '<!-- htmllint line-end-style="cr" -->'
+                            + '<!-- htmllint line-end-style="false" -->');
+        return expectOutput(original, expfalse);
     });
 
     it('should use allow $previous to revert value', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
                             + '<!-- htmllint line-end-style="$previous" -->');
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expfalse);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expshift);
     });
 
-    it('should throw on invalid $preset', function () {
+    it('should output an issue on invalid $preset', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style="$invalid" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        return expectConfigIssue(original, 'E051');
     });
 
     it('should work without quotes', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style=false -->');
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expfalse);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expfalse);
     });
 
     it('should work for strings without quotes', function () {
         original.splice(3, 0, '<!-- htmllint line-end-style=lf -->');
-        return lint(original.join('\n') + '\n').then(function (output) {
-            var result = meetExpectations(output, expshift);
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, expshift);
     });
 
-    it('should throw an error on bad config formatting', function () {
+    it('should output an issue on bad config formatting', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup-"false" id-class-no-ad="false" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        return expectConfigIssue(original, 'E050');
     });
 
     it('should throw an error on bad options', function () {
-        original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup-"false" id-no-no-ad="false" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup="false" id-no-no-ad="false" -->');
+        return expectConfigIssue(original, 'E054');
     });
 
-    it('should throw on invalid option value', function () {
+    it('should output an issue on invalid option value', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="fal#se" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        return expectConfigIssue(original, 'E053');
     });
 
     it('should throw on nonexistent rule name', function () {
         original.splice(4, 0, '<!-- htmllint not-rule="false" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        return expectConfigIssue(original, 'E054');
     });
 
-    it('should throw on invalid rule name', function () {
+    it('should output an issue on invalid rule name', function () {
         original.splice(3, 0, '<!-- htmllint pre#set="none" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        return expectConfigIssue(original, 'E051');
     });
 
     it('should change multiple rules', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup="false" id-class-no-ad="false" -->');
-
-        lint(original.join('\n') + '\n').then(function (output) {
-
-            // TODO: examine this test case, it passes when it probably shouldn't >.>
-            var expectation = [
-                {
-                    name: 'line-end-style',
-                    line: 3
-                }
-            ];
-            var result = meetExpectations(output, expectation);
-
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, [ { code: 'E015', line: 3 } ]);
     });
 
     it('should take in presets', function () {
         original.splice(1, 0, '<!-- htmllint preset="none" -->');
-
-        lint(original.join('\n') + '\n').then(function (output) {
-            var expectation = [];
-            var result = meetExpectations(output, expectation);
-
-            expect(result).to.be.eql(true);
-        });
+        return expectOutput(original, []);
     });
 
-    it('should throw on invalid preset option', function () {
+    it('should restore values with $previous after using presets', function () {
+        original.splice(3, 0, '<!-- htmllint preset="none" -->'
+                            + '<!-- htmllint line-end-style="$previous" -->');
+        return expectOutput(original, expfalse);
+    });
+
+    it('should revert last setting preset=$previous', function () {
+        original.splice(3, 0, '<!-- htmllint line-end-style="false" -->'
+                            + '<!-- htmllint id-no-dup="false" id-class-no-ad="false" -->'
+                            + '<!-- htmllint preset="$previous" -->');
+        return expectOutput(original, expfalse);
+    });
+
+    it('should revert an entire preset with preset=$previous', function () {
+        original.splice(3, 0, '<!-- htmllint preset="none" -->'
+                            + '<!-- htmllint preset="$previous" -->');
+        return expectOutput(original, expshift);
+    });
+
+    it('should output an issue on invalid preset option', function () {
         original.splice(3, 0, '<!-- htmllint preset="invalid" -->');
-        expect(lint(original.join('\n') + '\n')).to.eventually.throw(Error);
+        return expectConfigIssue(original, 'E052');
     });
 });
