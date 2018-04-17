@@ -158,5 +158,18 @@ module.exports = [
         ].join('\n'),
         opts: { 'indent-width': 4, 'indent-width-cont': true },
         output: 0
+    }, {
+        desc: 'indent-width-cont should check lines with only spaces',
+        input: [
+            '<div>',
+            '     ',
+            '    <input type="button" />',
+            '</div>',
+            '<script>',
+            '  var foo = 1;',
+            '</script>'
+        ].join('\n'),
+        opts: { 'indent-width': 4, 'indent-width-cont': true },
+        output: 1
     }
 ];
