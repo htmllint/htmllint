@@ -19,7 +19,6 @@ var preamble = [
 '',
 'The following values may be used for format specifiers. A format',
 'specifier is a requirement on the form of a string.',
-'* "none": No requirement.',
 '* "lowercase": Consists of lowercase letters.',
 '* "underscore": Lowercase and underscore-separated.',
 '* "dash": Lowercase and separated by hyphens.',
