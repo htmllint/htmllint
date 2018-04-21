@@ -24,5 +24,10 @@ module.exports = [
         input: '<div class="definitely-not-an-ad"></div>',
         opts: { 'id-class-no-ad': true },
         output: 1
+    }, {
+        desc: 'should fail values containing "banner" or "social"',
+        input: '<div id="**banner**" class="~~social~~"></div>',
+        opts: { 'id-class-no-ad': true },
+        output: 2
     }
 ];
