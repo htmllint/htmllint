@@ -19,5 +19,10 @@ module.exports = [
         input: '<div class=large" id=\'title\'><p class=="bold">text</p></div>',
         opts: { 'attr-validate': true },
         output: 2
+    }, {
+        desc: 'should work on self-closing tags with no space before /',
+        input: '<meta charset="utf-8"/>',
+        opts: { 'attr-validate': true },
+        output: 0
     }
 ];
