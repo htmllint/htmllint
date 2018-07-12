@@ -63,5 +63,15 @@ module.exports = [
         ].join('\n'),
         opts: { 'indent-delta':true, 'indent-width':2 },
         output: 3
+    }, {
+        desc: 'should take into account indent-width-cont option',
+        input: [
+            '<div myFirstAttr="a">',
+            '     mySecondAttr="b">',
+            '  <p>hello</p>',
+            '</div>'
+        ].join('\n'),
+        opts: { 'indent-delta':true, 'indent-width':2, 'indent-width-cont':true },
+        output: 0
     },
 ]
