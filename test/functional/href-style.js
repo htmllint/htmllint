@@ -29,5 +29,10 @@ module.exports = [
         input: '<a></a>',
         opts: { 'href-style': 'absolute' },
         output: 0
+    }, {
+        desc: 'should not match fragment-only URLs',
+        input: '<a href="#fragment"></a>',
+        opts: { 'href-style': 'absolute' },
+        output: 0
     }
 ];
