@@ -48,7 +48,7 @@
     ]
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "contributors": [
     "Yannick Van Avermaet <yvanavermaet+npm@gmail.com> (https://twitter.com/yvanavermaet)"
