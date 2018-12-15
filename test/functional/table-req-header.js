@@ -17,7 +17,7 @@ module.exports = [
         opts: { 'table-req-header': true },
         output: 0
     },
-	{
+    {
         desc: 'should pass when th is not first cell in tr',
         input: '<table><tr><td>Shh</td><th>Doges</th></tr></table>',
         opts: { 'table-req-header': true },
@@ -47,7 +47,7 @@ module.exports = [
         opts: { 'table-req-header': true },
         output: 0
     },
-	{
+    {
         desc: 'should pass when table has caption and text before thead',
         input: '<table>\n\t<caption>DOGS</caption>\n  <thead></thead>\n</table>',
         opts: { 'table-req-header': true },

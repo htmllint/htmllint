@@ -37,7 +37,7 @@ function expectOutput(ignore, expected, html) {
     return linter.lint(html, { 'raw-ignore-regex': ignore }, 'nodefault')
         .then(function (output) {
             var pos = output.map(
-                function(issue){return [issue.line,issue.column];}
+                function (issue) {return [issue.line,issue.column];}
             );
             expect(pos).to.be.eql(expected);
         });

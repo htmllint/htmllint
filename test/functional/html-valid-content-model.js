@@ -59,5 +59,5 @@ module.exports = [
         input: '<html><head></head><body><div></div></body></html>',
         opts: { 'html-valid-content-model': true },
         output: 0
-     }
+    }
 ];

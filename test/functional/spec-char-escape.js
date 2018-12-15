@@ -22,17 +22,17 @@ module.exports = [
     }, {
         desc: 'should ignore text matching text-ignore-regex',
         input: '<div><p id="abc{{angu|ar $#!+}}">Some\n{{>>angular&!!\\}}\n{{!!!!}}\ntext</p></div>',
-        opts: { 'spec-char-escape': true , 'text-ignore-regex': /{{.*?}}/ },
+        opts: { 'spec-char-escape': true, 'text-ignore-regex': /{{.*?}}/ },
         output: 0
     }, {
         desc: 'should check sections of text not matching text-ignore-regex',
         input: '<div><p id="abc{{angu|ar $#!+}}">Some&\n{{>>angular&!!\\}}\n>text</p></div>',
-        opts: { 'spec-char-escape': true , 'text-ignore-regex': /{{.*?}}/ },
+        opts: { 'spec-char-escape': true, 'text-ignore-regex': /{{.*?}}/ },
         output: 2
     }, {
         desc: 'text-ignore-regex should maintain case-insensitive flag',
         input: 'AA&Bb aa&bb',
-        opts: { 'spec-char-escape': true , 'text-ignore-regex': /aa.*?bb/i },
+        opts: { 'spec-char-escape': true, 'text-ignore-regex': /aa.*?bb/i },
         output: 0
     }
 ];

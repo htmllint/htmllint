@@ -24,12 +24,12 @@ module.exports = [
         input: '<head><title></title><link></link><div></div></head>',
         opts: { 'head-valid-content-model': true },
         output: 1
-   }, {
+    }, {
         desc: 'multiple illegal elements should all fail',
         input: '<head><div></div><h1></h1><a></a></head>',
         opts: { 'head-valid-content-model': true },
         output: 3
-   }, {
+    }, {
         desc: 'empty head should pass',
         input: '<head></head>',
         opts: { 'head-valid-content-model': true },

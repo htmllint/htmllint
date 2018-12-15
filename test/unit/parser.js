@@ -14,11 +14,11 @@ describe('linter', function () {
 
         it('should return correct line and column numbers', function () {
             var output = parser.parse([
-               '<body>\n'
-              ,'  <div a="jofwei">\n'
-              ,'    TextTextText\n'
-              ,'  </div>\n'
-              ,'</body>\n'
+               '<body>\n',
+               '  <div a="jofwei">\n',
+               '    TextTextText\n',
+               '  </div>\n',
+               '</body>\n'
             ].join(''));
 
             expect(output[0].openLineCol).to.be.eql([1,1]);
@@ -37,10 +37,10 @@ describe('linter', function () {
 
         it('should correctly return an array of duplicates', function () {
             var output = parser.parse([
-               '<body>\n'
-              ,'  <div class="hello" id="identityDiv" class="goodbye">\n'
-              ,'  </div>\n'
-              ,'</body>\n'
+               '<body>\n',
+               '  <div class="hello" id="identityDiv" class="goodbye">\n',
+               '  </div>\n',
+               '</body>\n'
             ].join(''));
 
             expect(output[0].children[1].dupes).to.be.eql(['class']);

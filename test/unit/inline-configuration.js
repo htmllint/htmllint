@@ -40,7 +40,7 @@ function meetExpectations(output, expectation) {
 
 function expectOutput(html, expected, trim) {
     return lint(html.join('\n') + '\n').then(function (output) {
-        if (trim) output = output.slice(0, expected.length);
+        if (trim) { output = output.slice(0, expected.length); }
         expect(meetExpectations(output, expected)).to.be.true;
     });
 }
@@ -158,7 +158,7 @@ describe('inline-configuration', function () {
 
     it('should change multiple rules', function () {
         original.splice(4, 0, '<!-- htmllint line-end-style="false" id-no-dup="false" id-class-no-ad="false" -->');
-        return expectOutput(original, [ { code: 'E015', line: 3 } ]);
+        return expectOutput(original, [{ code: 'E015', line: 3 }]);
     });
 
     it('should take in presets', function () {

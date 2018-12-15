@@ -73,5 +73,5 @@ module.exports = [
         ].join('\n'),
         opts: { 'indent-delta':true, 'indent-width':2, 'indent-width-cont':true },
         output: 0
-    },
+    }
 ]

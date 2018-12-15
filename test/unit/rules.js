@@ -7,7 +7,7 @@ describe('htmllint.rules', function () {
                 expect(rule).to.have.property('name');
             });
 
-            if (rule.name === 'free-options') return;
+            if (rule.name === 'free-options') { return; }
 
             it('should have a lint function', function () {
                 expect(rule).to.have.property('lint');

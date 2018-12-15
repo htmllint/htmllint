@@ -134,7 +134,7 @@ describe('Config', function () {
         it('should initialize the option', function () {
             config.addOption({name:'test'});
 
-            var addedOption = config.options['test'];
+            var addedOption = config.options.test;
 
             expect(addedOption.name).to.be.eql('test');
             expect(addedOption.rules).to.be.eql(['test']);
