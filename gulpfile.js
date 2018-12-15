@@ -33,7 +33,7 @@ gulp.task('lint', gulp.series('jscs', function () {
 
 // instruments js source code for coverage reporting
 gulp.task('istanbul', function (done) {
-    gulp.src(paths.src)
+    return gulp.src(paths.src)
         .pipe(istanbul())
         .pipe(istanbul.hookRequire())
         .on('finish', done);
@@ -47,7 +47,7 @@ gulp.task('test', gulp.series('istanbul', function (done) {
     global.chai.use(require('chai-as-promised'));
     global.expect = global.chai.expect;
 
-    gulp.src(paths.test, {read:false})
+    return gulp.src(paths.test, {read:false})
         .pipe(mocha({
             reporter: 'list'
         }))
@@ -101,7 +101,7 @@ gulp.task('doc:pub', gulp.series('jsdoc', function () {
 
 // runs on travis ci (lints, tests, and uploads to coveralls)
 gulp.task('travis', gulp.series(gulp.parallel('lint', 'test'), function () {
-    gulp.src('coverage/**/lcov.info')
+    return gulp.src('coverage/**/lcov.info')
         .pipe(coveralls());
 }));
 
