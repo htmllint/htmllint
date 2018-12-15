@@ -1,6 +1,20 @@
 Release History
 ---------------
 
+### v0.7.3
+
+* disable `indent-delta` checking on continuation lines when
+`indent-width-cont` is set
+* don't check fragment links (those that start with `#`) in `href-style`
+* fix parsing of attributes in incorrectly self-closed tags
+* fix attribute validation in self-closed tags
+* add checks for keywords "banner" and "social" to `id-class-no-ad` rule
+* correct line and column numbers in `id-class-no-ad` and
+`spec-char-escape` output
+* add `link-req-noopener` rule
+* allow continuation lines (with `indent-width-cont`) to use spaces after
+tabs for alignment
+
 ### v0.7.2
 
 * fix catastrophic backtracking (a potential DoS issue) in the BEM style
