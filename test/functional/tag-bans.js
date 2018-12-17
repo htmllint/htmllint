@@ -18,5 +18,15 @@ module.exports = [
         input: '<body><button style=""></button><main></main></body>',
         opts: { 'tag-bans': false },
         output: 0
+    }, {
+        desc: 'should fail if not given a list',
+        input: '',
+        opts: { 'tag-bans': 'main' },
+        output: 1
+    }, {
+        desc: 'should fail if not given a list of strings',
+        input: '',
+        opts: { 'tag-bans': [3, 4, 5] },
+        output: 1
     }
 ];
