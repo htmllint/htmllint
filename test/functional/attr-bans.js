@@ -34,5 +34,10 @@ module.exports = [
         input: '<body Ban0 ban1></body>',
         opts: { 'attr-bans': ['ban0', 'bAN1'] },
         output: 2
+    }, {
+        desc: 'should test for regexes',
+        input: '<div onClick="" onfocus="" noop=""></div>',
+        opts: { 'attr-bans': ['/^(?!on).*/'] },
+        output: 2
     }
 ];
