@@ -6,7 +6,7 @@ module.exports = [
         output: 0
     }, {
         desc: 'should pass valid attribute list 2',
-        input: '<div\t  class ="large" id=a\nid\r=\'\n\tb  \' ></div>',
+        input: '<div\t  claSs ="large" id=a\nid\r=\'\n\tb  \' ></div>',
         opts: { 'attr-validate': true },
         output: 0
     }, {

@@ -15,6 +15,11 @@ module.exports = [
         opts: {'attr-req-value': true},
         output: 0
     }, {
+        desc: 'should handle non-lowercase attribute names',
+        input: '<img SRC="test image.jpg" Alt="test">',
+        opts: {'attr-req-value': true},
+        output: 0
+    }, {
         desc: 'should fail when attribs aren`t valued',
         input: '<img src>',
         opts: {'attr-req-value': true},

@@ -48,6 +48,12 @@ module.exports = [
         output: 1
     },
     {
+        desc: 'should be case insensitive',
+        input: '<img src="test.gif" CLASS="test" width="300" height="200"></img>',
+        opts: { 'attr-order': ['class','src','HEIGHT','width'] },
+        output: 2
+    },
+    {
         desc: 'should pass when attribute order is consistent with regex (class then everything else)',
         input: '<img class="test" src="test.gif" height="200" width="300"></img>',
         opts: { 'attr-order': ['class','/^.*$/'] },

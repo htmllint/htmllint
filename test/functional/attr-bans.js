@@ -29,5 +29,10 @@ module.exports = [
         input: '<body banned></body>',
         opts: { 'attr-bans': ['banned'] },
         output: 1
+    }, {
+        desc: 'should be case insensitive',
+        input: '<body Ban0 ban1></body>',
+        opts: { 'attr-bans': ['ban0', 'bAN1'] },
+        output: 2
     }
 ];

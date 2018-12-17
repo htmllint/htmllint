@@ -24,5 +24,10 @@ module.exports = [
         input: '<body><div class="mdo" class="hey"><p id="Whaddup" id="fat">Text</p></div></body>',
         opts: { 'attr-no-dup': true },
         output: 2
+    }, {
+        desc: 'should be case insensitive',
+        input: '<p class="a" Class="b">Text</p>',
+        opts: { 'attr-no-dup': true },
+        output: 1
     }
 ];
