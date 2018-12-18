@@ -28,5 +28,10 @@ module.exports = [
         input: '',
         opts: { 'tag-bans': [3, 4, 5] },
         output: 1
+    }, {
+        desc: 'should be case insensitive',
+        input: '<body><BUTTON style=""></BUTTON><main></main></body>',
+        opts: { 'tag-bans': ['button', 'maIN'] },
+        output: 2
     }
 ];
