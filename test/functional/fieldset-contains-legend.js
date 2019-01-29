@@ -3,7 +3,7 @@ module.exports = [
         desc: 'should pass when set to false',
         input: '<fieldset><div>fieldcontent</div></fieldset>',
         opts: {
-            'wcag-rule-73': false
+            'fieldset-contains-legend': false
         },
         output: 0
     },
@@ -11,7 +11,7 @@ module.exports = [
         desc: 'should fail when set to true',
         input: '<fieldset><div>fieldcontent</div></fieldset>',
         opts: {
-            'wcag-rule-73': true
+            'fieldset-contains-legend': true
         },
         output: 1
     },
@@ -19,7 +19,7 @@ module.exports = [
         desc: 'should pass when set to true and contains a legend',
         input: '<fieldset><legend>theLegend</legend><div>fieldcontent</div></fieldset>',
         opts: {
-            'wcag-rule-73': true
+            'fieldset-contains-legend': true
         },
         output: 0
     }

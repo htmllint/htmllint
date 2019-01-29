@@ -3,7 +3,7 @@ module.exports = [
         desc: 'should pass when set to false',
         input: '<a href="/myHref >A</a>',
         opts: {
-            'wcag-rule-38': false
+            'link-min-length-4': false
         },
         output: 0
     },
@@ -11,7 +11,7 @@ module.exports = [
         desc: 'should ignore a tags that don\'t have a href',
         input: '<a>A</a>',
         opts: {
-            'wcag-rule-38': true
+            'link-min-length-4': true
         },
         output: 0
     },
@@ -19,7 +19,7 @@ module.exports = [
         desc: 'should fail when set to true',
         input: '<a href=\'/myHref\' >A</a>',
         opts: {
-            'wcag-rule-38': true
+            'link-min-length-4': true
         },
         output: 1
     },
@@ -27,7 +27,7 @@ module.exports = [
         desc: 'if content length>=4 and has href there is no issue',
         input: '<a href=\'/myHref\' >Four</a>',
         opts: {
-            'wcag-rule-38': true
+            'link-min-length-4': true
         },
         output: 0
     }
