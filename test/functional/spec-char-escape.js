@@ -34,5 +34,10 @@ module.exports = [
         input: 'AA&Bb aa&bb',
         opts: { 'spec-char-escape': true, 'text-ignore-regex': /aa.*?bb/i },
         output: 0
+    }, {
+        desc: 'should not apply to style or script tags',
+        input: '<style>.Tag>div{color:#fff}</style><script>function lt(a,b){return a<b;}</script>',
+        opts: { 'spec-char-escape': true },
+        output: 0
     }
 ];
