@@ -39,5 +39,4 @@ module.exports = [
         },
         output: 0
     }
-    
 ];
