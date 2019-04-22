@@ -1,6 +1,17 @@
 Release History
 ---------------
 
+### v0.8.0
+
+* Required node version increased to 6.
+* `style` removed from default list of banned tags.
+* Add WCAG rules 38, 73, 74, 77, and 78.
+* Disable the `spec-char-escape` inside `script` and `style` elements.
+* Fix case handling in `tag-bans`; it is now case insensitive.
+* Allow regular expression arguments to `attr-bans`.
+* Fix case handling in `attr-bans` and `attr-order`.
+* Fix `link-req-noopener` when `rel` contains multiple words.
+
 ### v0.7.3
 
 * disable `indent-delta` checking on continuation lines when
